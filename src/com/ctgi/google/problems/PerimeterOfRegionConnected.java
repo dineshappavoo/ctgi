@@ -13,6 +13,23 @@ public class PerimeterOfRegionConnected {
 	 * @param args
 	 * 
 	 * 
+	 * Given a 2-dimensional array of ints representing a bitmap, and an (x, y) coordinate of a “pixel” in that bitmap, find the perimeter of the region connected to that pixel that shares the same color.
+
+		0001
+		0100
+		0110
+		0000  (1, 1)
+
+		4445
+		4544
+		4554
+		4444
+
+		...X
+		.X..
+		.XX.
+		....  (1, 1)
+		
 	 * 	4445
 		4544
 		4554

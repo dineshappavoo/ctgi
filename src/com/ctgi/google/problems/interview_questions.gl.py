@@ -1,6 +1,6 @@
 ALGORITHMS:
 
-1. Find the deepest node of a binary tree. If multiple nodes are at the deepest level, then return the rightmost node. -  [DeepestNodeInBinaryTree]
+1. Find the deepest node of a binary tree. If multiple nodes are at the deepest level, then return the rightmost node. -  [DeepestNodeInBinaryTree, CreateTreeGivenPostAndInOrder, DeepestNode]
 2. Randomize an array, ensuring no items are in the same position they were in originally.
 3. Arrange an array in a zig zag manner s1 < s2 > s3 < s4 ..sn [3] - [ArrayZigZagArrangment]
 4. Build a multiplier
@@ -34,7 +34,25 @@ ALGORITHMS:
 25. How would I implement the autocomplete function on an iPhone or Google search?
 26. No. of paths between two points in a grid
 27. You and opponent alternate picking gold pots out of line. You can pick either from the left or the right. All amounts of gold in all pots are know. Write an algorithm to pick the most gold. Assume you opponent is using the same algorithm
-28.
+28. Given a binary search tree of ints, and a min and a max int, find the sum of those nodes in the tree whose values fall between the min and the max. - [OWN][NodeSumBetweenMinAndMaxInBST]
+29. Given a 2-dimensional array of ints representing a bitmap, and an (x, y) coordinate of a “pixel” in that bitmap, find the perimeter of the region connected to that pixel that shares the same color. -[OWN] [PerimeterOfRegionConnected]
+    0001
+    0100
+    0110
+    0000  (1, 1)
+
+    4445
+    4544
+    4554
+    4444
+
+    ...X
+    .X..
+    .XX.
+    ....  (1, 1)
+30.
+
+
 
 TEST
 1.

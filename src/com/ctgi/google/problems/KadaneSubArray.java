@@ -4,6 +4,15 @@ package com.ctgi.google.problems;
 /**
  * @author Dany
  *
+ *
+ *Find the maximum sum sub array in a array which positive and negative integers.
+ *
+ *	intArr = {-8,7,9,-5,6,-2,0 }
+ *	Output:
+ *	Max sum         : 17
+	Max start index : 1
+	Max end index   : 4
+ *
  */
 
 public class KadaneSubArray {
