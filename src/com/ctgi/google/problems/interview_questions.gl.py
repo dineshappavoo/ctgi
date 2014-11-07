@@ -1,6 +1,6 @@
 ALGORITHMS:
 
-1. Find the deepest node of a binary tree. If multiple nodes are at the deepest level, then return the rightmost node. - [DeepestNodeInBinaryTree]
+1. Find the deepest node of a binary tree. If multiple nodes are at the deepest level, then return the rightmost node. -  [DeepestNodeInBinaryTree]
 2. Randomize an array, ensuring no items are in the same position they were in originally.
 3. Arrange an array in a zig zag manner s1 < s2 > s3 < s4 ..sn [3] - [ArrayZigZagArrangment]
 4. Build a multiplier
