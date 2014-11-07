@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.ctgi.google;
+package com.ctgi.google.problems;
 
 /**
  * @author Dany
  *
+ *Arrange an array in a zig zag manner s1 < s2 > s3 < s4 ..sn [3]
  */
 public class ArrayZigZagArrangment {
 

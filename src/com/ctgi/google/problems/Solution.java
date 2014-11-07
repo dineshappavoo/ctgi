@@ -1,4 +1,4 @@
-package com.ctgi.google;
+package com.ctgi.google.problems;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

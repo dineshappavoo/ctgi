@@ -1,4 +1,4 @@
-package com.ctgi.google;
+package com.ctgi.google.problems;
 I am hereCan you see me typing?
 
 Given a binary search tree of ints, and a min and a max int, find the sum of those nodes in the tree whose values fall between the min and the max.
