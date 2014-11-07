@@ -35,6 +35,16 @@ ALGORITHMS:
 26. No. of paths between two points in a grid
 27. You and opponent alternate picking gold pots out of line. You can pick either from the left or the right. All amounts of gold in all pots are know. Write an algorithm to pick the most gold. Assume you opponent is using the same algorithm
 28. Given a binary search tree of ints, and a min and a max int, find the sum of those nodes in the tree whose values fall between the min and the max. - [OWN][NodeSumBetweenMinAndMaxInBST]
+
+                 8
+                /  \
+               /     \
+              6      11
+            /  \     /  \
+           4    7    9   14
+
+        min: 6, max : 9, 6 + 7 + 8 + 9
+
 29. Given a 2-dimensional array of ints representing a bitmap, and an (x, y) coordinate of a “pixel” in that bitmap, find the perimeter of the region connected to that pixel that shares the same color. -[OWN] [PerimeterOfRegionConnected]
     0001
     0100

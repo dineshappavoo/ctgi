@@ -6,9 +6,9 @@ Given a binary search tree of ints, and a min and a max int, find the sum of tho
        8
       /  \
      /     \ 
-   6     11
+   6        11
   /  \     /  \
-4    7  9   14
+4    7    9   14
 
 min: 6, max : 9, 6 + 7 + 8 + 9
 
