@@ -4,13 +4,13 @@ ALGORITHMS:
 2. Randomize an array, ensuring no items are in the same position they were in originally.
 3. Arrange an array in a zig zag manner s1 < s2 > s3 < s4 ..sn [3] - [ArrayZigZagArrangment]
 4. Build a multiplier
-5. Given a collection of intervals, merge all overlapping intervals.
+5. Given a collection of intervals, merge all overlapping intervals. - [MergeOverlappingIntervals] [Interval]
     For example,
     Given [1,3],[2,6],[8,10],[15,18],
     return [1,6],[8,10],[15,18].
     ref : http://www.programcreek.com/2012/12/leetcode-merge-intervals/
 6. Implement String tokenizer in java
-7. Given set of characters duplicates possible, and given dictionary (list of words). Find longest word from dictionary that can be made from given characters. How will you do it if '*' (matches one wild character) is also included?
+7. Given set of characters duplicates possible, and given dictionary (list of words). Find longest word from dictionary that can be made from given characters. How will you do it if '*' (matches one wild character) is also included? - [LonestStringInDictionary] [StringObject] (Duplicates yet to be implemented)
 8. Implement a stack with find_min api as well
 9. Given set of points, find line with max points on it
 10. utf-8 byte stream verification and character extraction
