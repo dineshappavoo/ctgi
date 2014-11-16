@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
  *
  * RECURSIVE ALGORITHM:
  * - Get the possible denominations in a list and the value n(Cents)
