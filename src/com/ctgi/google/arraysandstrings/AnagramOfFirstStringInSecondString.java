@@ -44,7 +44,7 @@ public class AnagramOfFirstStringInSecondString {
 			arrCount[c]++;
 		}
 		
-		int[] tempArr = arrCount;
+		int[] tempArr = cloneIntArr(arrCount);
 		
 		for(int j=0;j<length2;j++)
 		{
@@ -60,17 +60,17 @@ public class AnagramOfFirstStringInSecondString {
 						if(k-j==length1-1)
 						{
 							if(isAnagram(tempArr))
-								return str2.substring(j,length1);
+								return str2.substring(j, j+length1);
 						}
 					}
 					else
 					{
-						tempArr= arrCount;
+						tempArr= cloneIntArr(arrCount);
 						break;
 					}
 				}else
 				{
-					tempArr= arrCount;
+					tempArr= cloneIntArr(arrCount);
 
 					break;
 				}
@@ -90,6 +90,17 @@ public class AnagramOfFirstStringInSecondString {
 		
 		return true;
 		
+	}
+	
+	public int[] cloneIntArr(int[] arr)
+	{
+		int[] cArr = new int[arr.length];
+		for(int i=0;i<arr.length;i++)
+		{
+			cArr[i] = arr[i];
+		}
+		
+		return cArr;
 	}
 
 }
