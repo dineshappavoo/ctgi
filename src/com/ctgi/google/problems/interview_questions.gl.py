@@ -17,7 +17,7 @@ ALGORITHMS:
 11. Problem of segment tree
 12. Given a string "aycvxfz" and a smaller string "fxa"
     Return a pointer to the location of the letter that first occurs in the bigger string from the smaller string.
-13. Write code to determine if a given input string contains balanced parentheses.
+13. Write code to determine if a given input string contains balanced parentheses. [BalancedParanthesisVerification]
 14. Write a function with integer input which returns an integer having been flipped around in the binary sense. Example:
     Given 3, it should be turned into 0000 0011, then flipped 1100 0000, then return 64+128 = 192.
 15. Find the local minima in an array. A local minima is defined as a number whose left and right indices are greater than it in     value.
