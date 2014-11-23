@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.problems.implementation.linkedlist;
+package com.ctgi.google.implementation.linkedlist;
 
 
 /**
