@@ -1,4 +1,4 @@
-package com.ctgi.google.problems;
+package com.ctgi.google.algorithms;
 
 
 /**
