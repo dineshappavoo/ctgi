@@ -67,6 +67,15 @@ ALGORITHMS:
         Max start index : 1
         Max end index   : 4
 
+31. Given an array of integers move all the zeros to the end of the array and keep the order of remaining elements. For example [3,0,6,8,0,3,1,0] should give the output as [1,6,8,3,1,0,0,0]
+32. Given a list of symmetry numbers, for example 1,6,9,8,0 are symmetry because it gives some number on rotation. 1 -> 1, 6 -> 9, 8 -> 8, 9 -> 6, 0 -> 0. Input will be a string numbers and the output should be a boolean value which says whether it is a symmetry or not.
+    Sample: 191 - False  bacause the symmetry is 161 and 161 != 191
+            181 - True symmetry is 181
+            19861 - True because the symmetry 19861
+33. Generate all 3 digit symmetry values. Generalize the problem to generate all n digit symmetry values.
+34. Write a function to insert a value into a circular doubly linked list whose values are sorted and head is the minimum value.
+
+
 
 TEST
 1.
@@ -74,6 +83,7 @@ TEST
 DESIGN:
 1. Design an interface
 2. write a class to define a deck of cards, and write shuffle function for the cards [2]
+3.Design a datastructure to store the elements and fetch the results with minimal complexity. STUDENT_ID, SCORE, RANK.
 
 References:
 1. http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
