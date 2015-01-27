@@ -24,6 +24,12 @@ public class LinkedList {
 
 	Node first;
 	int N;
+	
+	/**
+	 * Method to insert a new node to the list
+	 * @param key
+	 * @param value
+	 */
 	public void insert(int key, int value)
 	{
 		for(Node x=first;x!=null;x=x.next)
@@ -39,6 +45,11 @@ public class LinkedList {
 		N++;
 	}
 
+	/**
+	 * Method to look for an element in the list
+	 * @param key
+	 * @return
+	 */
 	public int lookup(int key)
 	{
 		Node x;
@@ -54,6 +65,11 @@ public class LinkedList {
 		return -1;
 	}
 
+	/**
+	 * Method to remove a node from the linked list
+	 * @param key
+	 * @return
+	 */
 	public int remove(int key)
 	{
 		int value;
@@ -61,6 +77,7 @@ public class LinkedList {
 
 		if (first.key==key) {
 			value = first.value;
+			first.value = first.next.value;
 			first = first.next;
 			N--;
 			return value;
@@ -73,6 +90,7 @@ public class LinkedList {
 				value=x.value;
 				x.key=x.next.key;
 				x.value=x.next.value;
+				x.next=x.next.next;
 				N--;
 				return value;
 			}
@@ -91,13 +109,32 @@ public class LinkedList {
 
 		return -1;
 	}
-
+	
+	/**
+	 * Method to get the size of the list
+	 * @return
+	 */
 	public int size()
 	{
 		return N;
 	}
-
-	public void reverse()
+	
+	public void printList()
+	{
+		System.out.print("[");
+		for(Node x=first;x!=null;x=x.next)
+		{
+			System.out.print(x.value);
+			if(x.next!=null)
+				System.out.print(",");
+		}
+		System.out.print("]\n");
+	}
+	
+	/**
+	 * Iterative reverse using another approach
+	 */
+	public void iterativeReverseAnother()
 	{
 		if(first==null||first.next==null)
 			return;
@@ -125,15 +162,35 @@ public class LinkedList {
 		}
 
 		first=prev;
-
 	}
-
-	public void recReverse()
+	
+	/**
+	 * Iterative reverse Working 
+	 */
+	public void iterativeReverse()
 	{
-		recursiveReverse(first);
+		Node current = first;
+		Node reversedPart = null;
+		Node next;
+		while(current!=null)
+		{
+			next = current.next;
+			current.next=reversedPart;
+			reversedPart=current;
+			current=next;
+		}
+		first= reversedPart;
 	}
 
-	public void recursiveReverse(Node current)
+	/**
+	 * Recursive reverse
+	 */
+	public void recursiveReverse()
+	{
+		recReverse(first);
+	}
+
+	public void recReverse(Node current)
 	{
 		if(current==null)
 			return;
@@ -143,7 +200,7 @@ public class LinkedList {
 			return;
 		}
 
-		recursiveReverse(current.next);
+		recReverse(current.next);
 		current.next.next=current;
 		current.next=null;
 
@@ -151,42 +208,33 @@ public class LinkedList {
 
 	public static void main(String args[])
 	{
-
 		LinkedList st = new LinkedList();
 
 		// insert some key-value pairs
-		st.insert(1,   324);
-		st.insert(5,   4324);
-		st.insert(6,   324);
-		st.insert(7,   4324);
-		st.insert(8,   324);
-		st.insert(9,   4324);
-		st.insert(10,   324);
-		st.insert(11,   4324);
-
-
+		st.insert(1,   1);
+		st.insert(5,   5);
+		st.insert(6,   6);
+		st.insert(7,   7);
+		st.insert(8,   8);
+		st.insert(9,   9);
+		st.insert(10, 10);
+		st.insert(11, 11);
+		st.printList();
+		
 		// search for IP addresses given URL
 		System.out.println("size = " + st.size());
-		System.out.println(st.lookup(1));
-		System.out.println(st.lookup(5));
-		System.out.println(st.lookup(6));
-		System.out.println();
-
-		// test out the iterator
-		//for (String s : st) 
-		//  System.out.println(s);
-
-
-		// print out all key-value pairs
-		//for (String s : st)
-		//  System.out.println(s + " " + st.get(s));
+		System.out.println("Lookup 1 is "+st.lookup(1));
+		System.out.println("Lookup 5 is "+st.lookup(5));
+		System.out.println("Lookup 6 is "+st.lookup(6));
 		System.out.println();
 
 		System.out.println("Deleting");
 		System.out.println(st.remove(1));
 		System.out.println(st.remove(6));
+		st.printList();
 		
-		st.reverse();
+		st.iterativeReverse();
+		st.printList();
 
 	}
 }
