@@ -8,8 +8,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.concurrent.CountDownLatch;
 
-import com.amazon.challenge.AmazonChallenge.Product;
 
 /**
  * @author Dany
@@ -19,10 +19,11 @@ import com.amazon.challenge.AmazonChallenge.Product;
  *
  *ALGORITHM:
  * 1. Get the input list
- * 2. Put it in a hashmap and update the count as value in the map
- * 3. Sort the 
- * 3. Iterate through the hashmap and then add the element to the maxHeap
- *
+ * 2. Put it in a hashmap and update the word occurrence count as value in the map
+ * 3. Iterate through the hash map and add word and count to the max heap which is implemented based on count priority
+ * 3. Iterate through the max heap and sort the words which has same occurrence count. 
+ * 	  Then add the words to result list.
+ * 4. return the result list
  *
  */
 public class SortListBasedOnOccurrance {
@@ -31,8 +32,18 @@ public class SortListBasedOnOccurrance {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		ArrayList<String> wordList = new ArrayList<String>();
+		wordList.add("Dinesh");
+		wordList.add("Poornesh");
+		wordList.add("Rahul");
+		wordList.add("Dinesh");
+		wordList.add("Moezhi");
+		wordList.add("Rahul");
+		ArrayList<String> res = new SortListBasedOnOccurrance().getSortedWordList(wordList);
+		for(String word : res)
+		{
+			System.out.println(word);
+		}
 	}	
 
 	class WordObj{
@@ -58,12 +69,12 @@ public class SortListBasedOnOccurrance {
 		return pq;
 	}
 	
-	public ArrayList<ArrayList<String>> getSortedWordList(ArrayList<String> wordList)
+	public ArrayList<String> getSortedWordList(ArrayList<String> wordList)
 	{
-		ArrayList<ArrayList<String>> resList = new ArrayList<ArrayList<String>>();
+		ArrayList<String> resultList = new ArrayList<String>();
 		HashMap<String, Integer> wordMap = new HashMap<String, Integer>();
 		
-		HashMap<Integer, ArrayList<String>> valueWordMap = new HashMap<Integer, ArrayList<String>>();
+		//HashMap<Integer, ArrayList<String>> valueWordMap = new HashMap<Integer, ArrayList<String>>();
 		
 		for(String word : wordList)
 		{
@@ -74,27 +85,7 @@ public class SortListBasedOnOccurrance {
 			{
 				wordMap.put(word, 1);
 			}
-		}
-		
-		for(String word : wordMap.keySet())
-		{
-			int count  = wordMap.get(word);
-			if(valueWordMap.containsKey(count))
-			{
-				valueWordMap.get(count).add(word);
-			}else
-			{
-				ArrayList<String> wList = new ArrayList<String>();
-				wList.add(word);
-				valueWordMap.put(count, wList);
-			}
-		}
-		
-		for(int count : valueWordMap.keySet())
-		{
-			ArrayList<String> words = valueWordMap.get(count);
-			
-		}
+		}		
 		PriorityQueue<WordObj> maxHeap = implementMaxHeap();
 		for(String word : wordMap.keySet())
 		{
@@ -102,10 +93,55 @@ public class SortListBasedOnOccurrance {
 			maxHeap.add(new WordObj(word, count));
 		}
 		
+		int lastCountValue =0;
+		ArrayList<String> wordArrList = new ArrayList<String>();
+		WordObj firstWord = maxHeap.poll();
+		wordArrList.add(firstWord.word);
+		lastCountValue = firstWord.count;
 		
-		return resList;
+		while(!maxHeap.isEmpty())
+		{
+			WordObj wObj = maxHeap.poll();
+			if(wObj.count==lastCountValue)
+			{
+				wordArrList.add(wObj.word);
+				lastCountValue = wObj.count;
+			}else
+			{
+				Collections.sort(wordArrList);
+				resultList.addAll(wordArrList);
+				wordArrList = new ArrayList<String>();
+				wordArrList.add(wObj.word);
+				lastCountValue = wObj.count;
+			}
+		}
+		Collections.sort(wordArrList);
+		resultList.addAll(wordArrList);		
+		
+		return resultList;
 	}
-
-
-
 }
+
+
+
+
+
+/*		for(String word : wordMap.keySet())
+{
+	int count  = wordMap.get(word);
+	if(valueWordMap.containsKey(count))
+	{
+		valueWordMap.get(count).add(word);
+	}else
+	{
+		ArrayList<String> wList = new ArrayList<String>();
+		wList.add(word);
+		valueWordMap.put(count, wList);
+	}
+}
+
+for(int count : valueWordMap.keySet())
+{
+	ArrayList<String> words = valueWordMap.get(count);
+	
+}*/
