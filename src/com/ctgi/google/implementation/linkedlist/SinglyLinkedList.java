@@ -8,7 +8,7 @@ package com.ctgi.google.implementation.linkedlist;
  * @author Dinesh Appavoo
  *
  */
-public class LinkedList {
+public class SinglyLinkedList {
 
 	class Node{
 		int key;
@@ -24,7 +24,7 @@ public class LinkedList {
 
 	Node first;
 	int N;
-	
+
 	/**
 	 * Method to insert a new node to the list
 	 * @param key
@@ -76,24 +76,23 @@ public class LinkedList {
 		if (first == null) return -1;
 
 		if (first.key==key) {
-			value = first.value;
-			first.value = first.next.value;
-			first = first.next;
-			N--;
+			if(first.next==null)
+			{
+				value= first.value;
+				first = null;
+			}else
+			{
+				value = first.value;
+				first.key = first.next.key;
+				first.value = first.next.value;
+				first = first.next;
+				N--;
+			}	
 			return value;
 		}
 
 		for(Node x=first;x.next!=null;x=x.next)
 		{
-			if(x.key==key)
-			{
-				value=x.value;
-				x.key=x.next.key;
-				x.value=x.next.value;
-				x.next=x.next.next;
-				N--;
-				return value;
-			}
 			if(x.next.next==null)
 			{
 				if(x.next.key==key)
@@ -104,12 +103,22 @@ public class LinkedList {
 					return value;
 				}
 			}
+			if(x.key==key)
+			{
+				value=x.value;
+				x.key=x.next.key;
+				x.value=x.next.value;
+				x.next=x.next.next;
+				N--;
+				return value;
+			}
+
 		}
 
 
 		return -1;
 	}
-	
+
 	/**
 	 * Method to get the size of the list
 	 * @return
@@ -118,7 +127,7 @@ public class LinkedList {
 	{
 		return N;
 	}
-	
+
 	public void printList()
 	{
 		System.out.print("[");
@@ -130,7 +139,7 @@ public class LinkedList {
 		}
 		System.out.print("]\n");
 	}
-	
+
 	/**
 	 * Iterative reverse using another approach
 	 */
@@ -163,7 +172,7 @@ public class LinkedList {
 
 		first=prev;
 	}
-	
+
 	/**
 	 * Iterative reverse Working 
 	 */
@@ -208,10 +217,11 @@ public class LinkedList {
 
 	public static void main(String args[])
 	{
-		LinkedList st = new LinkedList();
+		SinglyLinkedList st = new SinglyLinkedList();
 
 		// insert some key-value pairs
 		st.insert(1,   1);
+		st.remove(1);
 		st.insert(5,   5);
 		st.insert(6,   6);
 		st.insert(7,   7);
@@ -220,7 +230,7 @@ public class LinkedList {
 		st.insert(10, 10);
 		st.insert(11, 11);
 		st.printList();
-		
+
 		// search for IP addresses given URL
 		System.out.println("size = " + st.size());
 		System.out.println("Lookup 1 is "+st.lookup(1));
@@ -232,7 +242,7 @@ public class LinkedList {
 		System.out.println(st.remove(1));
 		System.out.println(st.remove(6));
 		st.printList();
-		
+
 		st.iterativeReverse();
 		st.printList();
 
