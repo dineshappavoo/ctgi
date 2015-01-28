@@ -1,8 +1,11 @@
 /**
  * 
  */
-package com.ctgi.google.threads;
+package com.ctgi.google.threads.producerconsumer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 
 /**
@@ -13,26 +16,26 @@ public class Producer implements Runnable{
 
 
 	protected BlockingQueue<String> queue= null;
+	Scanner scanner=null;
+
 
 	public Producer(BlockingQueue<String> queue)
 	{
 		this.queue=queue;
+
 	}
 
 	public void run()
 	{
 		try {
-			while(true)
-			{
-				queue.put("a");
-				Thread.sleep(1000);
-				queue.put("b");
-				Thread.sleep(1000);
-	            queue.put("c");
-
+			File file = new File("/Users/Dany/Downloads/input.txt");
+			scanner = new Scanner(file);
+			while(scanner.hasNext()){
+				queue.put(scanner.nextLine());
 			}
-
 		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.threads;
+package com.ctgi.google.threads.producerconsumer;
 
 import java.util.concurrent.BlockingQueue;
 
@@ -21,10 +21,7 @@ public class Consumer implements Runnable{
 	public void run()
 	{
 		try {
-			System.out.println(queue.take());
-			System.out.println(queue.take());
-			System.out.println(queue.take());
-
+			System.out.println(queue.take().toString());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

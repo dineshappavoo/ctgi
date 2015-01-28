@@ -1,8 +1,9 @@
 /**
  * 
  */
-package com.ctgi.google.threads;
+package com.ctgi.google.threads.producerconsumer;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -14,21 +15,24 @@ public class ProducerConsumer {
 
 	/**
 	 * @param args
+	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 
 		new ProducerConsumer().startProducerConsumerThread();
 	}
 
-	public void startProducerConsumerThread()
+	public void startProducerConsumerThread() throws FileNotFoundException
 	{
 		BlockingQueue<String> queue = new ArrayBlockingQueue<String>(1024);
 		Producer producer = new Producer(queue);
-		Consumer consumer = new Consumer(queue);
+		Consumer consumerOne = new Consumer(queue);
+		Consumer consumerTwo = new Consumer(queue);
 		try {
 			new Thread(producer).start();
-			new Thread(consumer).start();
+			new Thread(consumerOne).start();
+			new Thread(consumerTwo).start();
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
