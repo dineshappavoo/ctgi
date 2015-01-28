@@ -17,7 +17,7 @@ public class BitOperations {
 	 */
 	public int getBit(int num, int i)
 	{
-		
+		return (num & (1<<i));
 	}
 	
 	/**
@@ -28,7 +28,7 @@ public class BitOperations {
 	 */
 	public int setBit(int num, int i)
 	{
-		
+		return (num |(1<<i));
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class BitOperations {
 	 */
 	public int doExOr(int num1, int num2)
 	{
-		
+		return num1 ^ num2;
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class BitOperations {
 	 */
 	public int doAnd(int num1, int num2)
 	{
-		
+		return num1 & num2;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class BitOperations {
 	 */
 	public int doOr(int num1, int num2)
 	{
-		
+		return num1 | num2;
 	}
 	
 	/**
@@ -92,9 +92,9 @@ public class BitOperations {
 	 * @param num2
 	 * @return
 	 */
-	public int doNot(int num1, int num2)
+	public int doNot(int num)
 	{
-		
+		return (~num);
 	}
 		
 	/**
