@@ -20,6 +20,26 @@ int main ()
 }
 
 ```
+
+To declare the double pointers usee **. Double pointers are noting but pointers to the pointers. pointers to the pointers is shown in the following code
+
+```
+void showPointers()
+{
+    int var=15;
+    int *point;
+    point=&var;
+    int **pToP;
+    pToP = &point;
+    printf("The address of var is %x\n",&var);
+    printf("The value in point is %x and the value *point would be %d\n",point, *point);
+    
+    printf("The pointer to pointer value %x\nThe value of first pointer %x\n",pToP, *pToP);
+    printf("The value of var through pToP is %d\n",**pToP);
+}
+
+
+```
   
 ###Referrences
 
