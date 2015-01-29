@@ -68,6 +68,7 @@ ptr++
 Now, after the above operation, the ptr will point to the location 1004 because each time ptr is incremented, it will point to the next integer location which is 4 bytes next to the current location. This operation will move the pointer to next memory location without impacting actual value at the memory location. If ptr points to a character whose address is 1000, then above operation will point to the location 1001 because next character will be available at 1001. Because character needs 1 byte memory. 
 
 ```
+const int MAX=3;
 void showPointerArithmatic()
 {
     int var[] = {10,100,1000};
