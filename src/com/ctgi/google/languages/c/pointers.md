@@ -18,7 +18,6 @@ int main ()
 
    return 0;
 }
-
 ```
 
 ###Multi level Pointers
@@ -39,8 +38,6 @@ void showPointers()
     printf("The pointer to pointer value %x\nThe value of first pointer %x\n",pToP, *pToP);
     printf("The value of var through pToP is %d\n",**pToP);
 }
-
-
 ```
 
 You can use any level of pointers. But but there is a limit.Having two levels of indirection (a pointer to a pointer to something) is common. Any more than that gets a bit harder to think about easily; don't do it unless the alternative would be worse.
@@ -62,6 +59,38 @@ void showNullPointers()
 ```
 
 On most of the operating systems, programs are not permitted to access memory at address 0 because that memory is reserved by the operating system. However, the memory address 0 has special significance; it signals that the pointer is not intended to point to an accessible memory location. But by convention, if a pointer contains the null (zero) value, it is assumed to point to nothing.
+
+###C Pointer Arithmetic
+To understand pointer arithmetic, let us consider that ptr is an integer pointer which points to the address 1000. Assuming 32-bit integers, let us perform the following arithmetic operation on the pointer:
+```
+ptr++
+```
+Now, after the above operation, the ptr will point to the location 1004 because each time ptr is incremented, it will point to the next integer location which is 4 bytes next to the current location. This operation will move the pointer to next memory location without impacting actual value at the memory location. If ptr points to a character whose address is 1000, then above operation will point to the location 1001 because next character will be available at 1001. Because character needs 1 byte memory. 
+
+```
+void showPointerArithmatic()
+{
+    int var[] = {10,100,1000};
+    int *pointer;
+    int i=MAX-1;
+    pointer=var;
+    //Increment pointer
+    for(int i=0;i<MAX;i++)
+    {
+        printf("Index %d Address : %x\n",i,pointer);
+        printf("Index %d Value var[i] %d\n",i, *pointer);
+        pointer++;
+    }
+    //Decrement pointer
+    pointer=&var[MAX-1];
+    while(pointer>=&var[0]){
+        printf("Index %d Address : %x\n",i,pointer);
+        printf("Index %d Value var[i] %d\n",i, *pointer);
+        pointer--;
+        i--;
+    }
+}
+```
   
 ###Referrences
 
