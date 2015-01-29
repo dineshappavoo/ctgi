@@ -21,6 +21,7 @@ int main ()
 
 ```
   
-###Project Contributor
+###Referrences
 
-* Dinesh Appavoo ([@DineshAppavoo](https://twitter.com/DineshAppavoo))
+* ([Tutorials Point](http://www.tutorialspoint.com/cprogramming/c_pointers.htm))
+
