@@ -21,7 +21,9 @@ int main ()
 
 ```
 
-To declare the double pointers usee **. Double pointers are noting but pointers to the pointers. pointers to the pointers is shown in the following code
+###Multi level Pointers
+
+To declare the double pointers use **. Double pointers are noting but pointers to the pointers. pointers to the pointers is shown in the following code
 
 ```
 void showPointers()
@@ -40,8 +42,28 @@ void showPointers()
 
 
 ```
+
+You can use any level of pointers. But but there is a limit.Having two levels of indirection (a pointer to a pointer to something) is common. Any more than that gets a bit harder to think about easily; don't do it unless the alternative would be worse.
+
+###NULL Pointers in C
+It is always a good practice to assign a NULL value to a pointer variable in case you do not have exact address to be assigned. This is done at the time of variable declaration. A pointer that is assigned NULL is called a null pointer.
+
+The NULL pointer is a constant with a value of zero defined in several standard libraries. Consider the following program:
+
+```
+void showNullPointers()
+{
+    int var=8;
+    int *pointer = NULL;
+    printf("The Null pointer is value %x\n",pointer);
+    pointer = &var;
+    printf("The pointer value after assignment %x\n",pointer);
+}
+```
+
+On most of the operating systems, programs are not permitted to access memory at address 0 because that memory is reserved by the operating system. However, the memory address 0 has special significance; it signals that the pointer is not intended to point to an accessible memory location. But by convention, if a pointer contains the null (zero) value, it is assumed to point to nothing.
   
 ###Referrences
 
-* ([Tutorials Point](http://www.tutorialspoint.com/cprogramming/c_pointers.htm))
+* [Tutorials Point](http://www.tutorialspoint.com/cprogramming/c_pointers.htm)
 
