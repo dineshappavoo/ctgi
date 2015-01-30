@@ -30,7 +30,7 @@ Transistors used for storing complex instructions	|	Spends more transistors on m
 
 ###EXAMPLE
 
-		![RISC_VS_CISC](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/cisc_risc.JPG "cisc_risc")
+![RISC_VS_CISC](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/cisc_risc.JPG "cisc_risc")
 
 ####CISC Approach
 CISC design would try to finish the task in the minimum possible instructions by implementing hardware which could understand and execute series of operations. Thus the processor would come with a specific instruction ÔMULÕ in its instruction set. ÔMULÕ will loads the two values from the memory into separate registers, multiplies the operands in the execution unit, and then stores the product in the appropriate location. So, the entire task of multiplying two numbers can be completed with one instruction:
