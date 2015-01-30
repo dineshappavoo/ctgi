@@ -8,6 +8,12 @@ A semaphore is a variable or abstract data type that is used for controlling acc
 
 Invented by Dutch computer scientist Edsger Dijkstra in 1962 or 1963  
 
+###Introduction Video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=KZU4ANBoLTY
+" target="_blank"><img src="http://img.youtube.com/vi/KZU4ANBoLTY/0.jpg" 
+alt="https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/bsem.png" width="240" height="180" border="10" /></a>
+
 ###Protocols
 When used for a pool of resources, a semaphore tracks only how many resources are free; it does not keep track of which of the resources are free. Some other mechanism (possibly involving more semaphores) may be required to select a particular free resource.
 
@@ -32,7 +38,7 @@ Two operations are defined:
 
 `Release (chBSemSignal() in ChibiOS/RT):` Releasing a binary semaphore brings it in the “not taken” state if there are not queued threads. If there are queued threads then a thread is removed from the queue and resumed, the binary semaphore remains in the “taken” state. Releasing a semaphore that is already in its “not taken” state has no effect.
 
-![ctgi](src/com/ctgi/images/bsem.png "binary semaphores")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/bsem.png "binary semaphores")
 
 ###Counting Semaphores
 A counting semaphore is a synchronization object that can have an arbitrarily large number of states. The internal state is defined by a signed integer variable, the counter.
@@ -43,9 +49,9 @@ The value of the semaphore S is the number of units of the resource that are cur
 
 `A simple way to understand wait and signal operations is:`
 
-`**wait:**` If the value of semaphore variable is not negative, decrements it by 1. Otherwise, the process executing wait is blocked (i.e., added to the semaphore's queue) until the value is greater or equal to 1.
+**`wait:`** If the value of semaphore variable is not negative, decrements it by 1. Otherwise, the process executing wait is blocked (i.e., added to the semaphore's queue) until the value is greater or equal to 1.
 
-`**signal:**` Increments the value of semaphore variable by 1. After the increment, if the pre-increment value was negative (meaning there are processes waiting for a resource), it transfers a blocked process from the semaphore's waiting queue to the ready queue.
+**`signal:`** Increments the value of semaphore variable by 1. After the increment, if the pre-increment value was negative (meaning there are processes waiting for a resource), it transfers a blocked process from the semaphore's waiting queue to the ready queue.
 
 ```c
 function V(semaphore S, integer I):
@@ -67,7 +73,7 @@ The counter value (N) has a precise meaning:
 To avoid starvation, a semaphore has an associated queue of processes (usually with first-in, first out semantics). If a process performs a P operation on a semaphore that has the value zero, the process is added to the semaphore's queue and its execution is suspended. When another process increments the semaphore by performing a V operation, and there are processes on the queue, one of them is removed from the queue and resumes execution. When processes have different priorities the queue may be ordered by priority, so that the highest priority process is taken from the queue first.
 
 
-###Example: Producer/consumer problem[edit]
+###Example: Producer/consumer problem
 In the producer-consumer problem, one process (the producer) generates data items and another process (the consumer) receives and uses them. They communicate using a queue of maximum size N and are subject to the following conditions:
 
 The consumer must wait for the producer to produce something if the queue is empty.
@@ -97,6 +103,7 @@ consume:
     V(useQueue)
     V(emptyCount)
 ```
+You can find the source code for producer consumer problem [here](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/threads/producerconsumer) 
 
 ###Mutex    
 A mutex is a synchronization object that can have only two states:
@@ -106,15 +113,15 @@ A mutex is a synchronization object that can have only two states:
 
 Two operations are defined for mutexes:
 
-`**Lock (chMtxLock() in ChibiOS/RT):**` This operation attempts to take ownership of a mutex, if the mutex is already owned by another thread then the invoking thread is queued.
-`**Unlock (chMtxUnlock() in ChibiOS/RT):**` This operation relinquishes ownership of a mutex. If there are queued threads then a thread is removed from the queue and resumed, ownership is implicitly assigned to the thread.
+**`Lock (chMtxLock() in ChibiOS/RT):`** This operation attempts to take ownership of a mutex, if the mutex is already owned by another thread then the invoking thread is queued.
+**`Unlock (chMtxUnlock() in ChibiOS/RT):`** This operation relinquishes ownership of a mutex. If there are queued threads then a thread is removed from the queue and resumed, ownership is implicitly assigned to the thread.
 
-![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/bsem.png "Mutex")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/mutex.png "Mutex")
 
 
 Note that, unlike semaphores, mutexes do have owners. A mutex can be unlocked only by the thread that owns it, this precludes the use of mutexes from interrupt handles but enables the implementation of the Priority Inheritance protocol, most RTOSs implement this protocol in order to address the Priority Inversion problem. It must be said that few RTOSs implement this protocol fully (any number of threads and mutexes involved) and even less do that efficiently.
 
-Mutexes have one single use, Mutual Exclusion, and are optimized for that. Semaphores can also handle mutual exclusion scenarios but are best used as a communication mechanism between threads or between ISRs and threads. Also see the following articles:
+Mutexes have one single use, Mutual Exclusion, and are optimized for that. Semaphores can also handle mutual exclusion scenarios but are best used as a communication mechanism between threads or between ISRs and threads.
 
 ###Referrences
 
