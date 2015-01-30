@@ -39,7 +39,7 @@ public class BitOperations {
 	 */
 	public int clearBit(int num, int i)
 	{
-		
+		return num & (~(1<<i));
 	}
 	
 	/**
@@ -50,7 +50,8 @@ public class BitOperations {
 	 */
 	public int updateBit(int num, int i)
 	{
-		
+		num = num & (~(1<<i));
+		return num | (1<<i);
 	}
 	
 	/**
