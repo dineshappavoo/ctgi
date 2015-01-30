@@ -109,7 +109,7 @@ Two operations are defined for mutexes:
 `**Lock (chMtxLock() in ChibiOS/RT):**` This operation attempts to take ownership of a mutex, if the mutex is already owned by another thread then the invoking thread is queued.
 `**Unlock (chMtxUnlock() in ChibiOS/RT):**` This operation relinquishes ownership of a mutex. If there are queued threads then a thread is removed from the queue and resumed, ownership is implicitly assigned to the thread.
 
-![ctgi](src/com/ctgi/images/mutex.png "Mutex")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/bsem.png "Mutex")
 
 
 Note that, unlike semaphores, mutexes do have owners. A mutex can be unlocked only by the thread that owns it, this precludes the use of mutexes from interrupt handles but enables the implementation of the Priority Inheritance protocol, most RTOSs implement this protocol in order to address the Priority Inversion problem. It must be said that few RTOSs implement this protocol fully (any number of threads and mutexes involved) and even less do that efficiently.
