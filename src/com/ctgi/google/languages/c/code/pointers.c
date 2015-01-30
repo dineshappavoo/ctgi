@@ -86,13 +86,3 @@ void showArrayOfPointers()
         printf("Index %d pointer %x Value %d\n",i, pointer[i], *pointer[i]);
     }
 }
-
-
-
-
-
-
-
-
-
-
