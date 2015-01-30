@@ -9,7 +9,9 @@ It is also called ad LOAD/STORE architecture
 The first RISC projects came from IBM, Stanford, and UC-Berkeley in the late 70s and early 80s. The IBM 801, Stanford MIPS, and Berkeley RISC 1 and 2 were all designed with a similar philosophy which has become known as RISC. Certain design features have been characteristic of most RISC processors:
 
 **one cycle execution time:** RISC processors have a CPI (clock per instruction) of one cycle. This is due to the optimization of each instruction on the CPU and a technique called ;
+
 **pipelining:** a techique that allows for simultaneous execution of parts, or stages, of instructions to more efficiently process instructions;
+
 **large number of registers:** the RISC design philosophy generally incorporates a larger number of registers to prevent in large amounts of interactions with memory
 
 ###CISC
