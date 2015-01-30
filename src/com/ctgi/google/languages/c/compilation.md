@@ -16,7 +16,7 @@ Linking
 In Part-I of this article series, we will discuss the steps that the gcc compiler goes through when a C program source code is compiled into an executable.
 
 Before going any further, lets take a quick look on how to compile and run a ÔCÕ code using gcc, using a simple hello world example.
-```
+```c
 $ vi print.c
 #include <stdio.h>
 #define STRING "Hello World"
@@ -28,7 +28,7 @@ return 0;
 }
 ```
 Now, lets run gcc compiler over this source code to create the executable.
-```
+```c
 $ gcc -Wall print.c -o print
 ```
 In the above command:
@@ -39,7 +39,7 @@ print.c Ð Input C program
 -o print Ð Instruct C compiler to create the C executable as print. If you donÕt specify -o, by default C compiler will create the executable with name a.out
 Finally, execute print which will execute the C program and display hello world.
 
-```
+```c
 $ ./print
 Hello World
 ```
@@ -61,11 +61,11 @@ To understand preprocessing better, you can compile the above Ôprint.cÕ program 
 $ gcc -Wall -E print.c
 ```
 Even better, you can use flag Ô-save-tempsÕ as shown below. Ô-save-tempsÕ flag instructs compiler to store the temporary intermediate files used by the gcc compiler in the current directory.
-```
+```c
 $ gcc -Wall -save-temps print.c -o print
 ```
 So when we compile the program print.c with -save-temps flag we get the following intermediate files in the current directory (along with the print executable)
-```
+```c
 $ ls
 print.i
 print.s
@@ -74,7 +74,7 @@ print.o
 The preprocessed output is stored in the temporary file that has the extension .i (i.e Ôprint.iÕ in this example)
 
 Now, lets open print.i file and view the content.
-```
+```c
 $ vi print.i
 ......
 ......
@@ -130,7 +130,7 @@ After the compiler is done with the pre-processor stage. The next step is to tak
 
 Open the print.s file in an editor and view the content.
 
-```
+```c
 $ vi print.s
 .file "print.c"
 .section .rodata
@@ -168,9 +168,9 @@ At this stage the print.s file is taken as an input and an intermediate file pri
 
 This file is produced by the assembler that understands and converts a Ô.sÕ file with assembly instructions into a Ô.oÕ object file which contains machine level instructions. At this stage only the existing code is converted into machine language, the function calls like printf() are not resolved.
 
-Since the output of this stage is a machine level file (print.o). So we cannot view the content of it. If you still try to open the print.o and view it, youÕll see something that is totally not readable.
+Since the output of this stage is a machine level file (print.o). So we cannot view the content of it. If you still try to open the print.o and view it, you will see something that is totally not readable.
 
-```
+```c
 $ vi print.o
 ^?ELF^B^A^A^@^@^@^@^@^@^@^@^@^A^@>^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@0^
 ^@UH<89>Œü^@^@^@^@H<89>‚üHello World^@^@GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3^@^
@@ -200,7 +200,7 @@ The above tasks of the compiler can be verified by a small experiment. Since now
 
 So if we compare the file sizes of both the print.o and print file, weÕll see the difference.
 
-```
+```c
 $ size print.o
    text	   data	    bss	    dec	    hex	filename
      97	      0	      0	     97	     61	print.o 
