@@ -34,7 +34,7 @@ There are macros that have some values associated with them. For example :
 So, in the above example, we defined a macro MACRO1 which has value 25. The concept is that in the preprocessing stage of the compilation process, the name of this macro is replaced with macros value all over the code. For example :
 
 ```
-# define BUFFER_SIZE=1024
+# define BUFFER_SIZE 1024
 void showMacrosWithValues()
 {
     #ifdef BUFFER_SIZE
