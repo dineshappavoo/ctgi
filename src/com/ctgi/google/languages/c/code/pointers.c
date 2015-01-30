@@ -14,6 +14,7 @@ int main(void);
 void showPointers(void);
 void showNullPointers(void);
 void showPointerArithmatic(void);
+void showArrayOfPointers(void);
 
 const int MAX=3;
 int main()
@@ -22,6 +23,7 @@ int main()
     showPointers();
     showNullPointers();
     showPointerArithmatic();
+    showArrayOfPointers();
     return 0;
 }
 
@@ -68,6 +70,20 @@ void showPointerArithmatic()
         printf("Index %d Value var[i] %d\n",i, *pointer);
         pointer--;
         i--;
+    }
+}
+
+void showArrayOfPointers()
+{
+    int var[] ={10,100, 1000};
+    int *pointer[MAX];
+    //Assign address to pointer array
+    for (int i=0; i<MAX; i++) {
+        pointer[i] = &var[i];
+    }
+    //Display values
+    for(int i=0;i<MAX; i++){
+        printf("Index %d pointer %x Value %d\n",i, pointer[i], *pointer[i]);
     }
 }
 

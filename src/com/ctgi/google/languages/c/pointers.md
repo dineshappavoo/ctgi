@@ -4,7 +4,7 @@ C Language - Pointers
 C programming tasks are performed more easily with pointers, and other tasks, such as dynamic memory allocation, cannot be performed without using pointers.
 
 every variable is a memory location and every memory location has its address defined which can be accessed using ampersand (&) operator, which denotes an address in memory. Consider the following example, which will print the address of the variables defined:
-
+	
 ```
 #include <stdio.h>
 
@@ -92,6 +92,30 @@ void showPointerArithmatic()
     }
 }
 ```
+###C - Array of pointers
+There may be a situation when we want to maintain an array, which can store pointers to an int or char or any other data type available. Following is the declaration of an array of pointers to an integer:
+```
+int *ptr[MAX];
+```
+
+This declares ptr as an array of MAX integer pointers. Thus, each element in ptr, now holds a pointer to an int value. Following example makes use of three integers, which will be stored in an array of pointers as follows:
+
+```
+void showArrayOfPointers()
+{
+    int var[] ={10,100, 1000};
+    int *pointer[MAX];
+    //Assign address to pointer array
+    for (int i=0; i<MAX; i++) {
+        pointer[i] = &var[i];
+    }
+    //Display values
+    for(int i=0;i<MAX; i++){
+        printf("Index %d pointer %x Value %d\n",i, pointer[i], *pointer[i]);
+    }
+}
+```
+You can find the source code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/c/code/pointers.c)
   
 ###Referrences
 
