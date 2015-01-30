@@ -5,7 +5,7 @@ C programming tasks are performed more easily with pointers, and other tasks, su
 
 every variable is a memory location and every memory location has its address defined which can be accessed using ampersand (&) operator, which denotes an address in memory. Consider the following example, which will print the address of the variables defined:
 	
-```
+```c
 #include <stdio.h>
 
 int main ()
@@ -24,7 +24,7 @@ int main ()
 
 To declare the double pointers use **. Double pointers are noting but pointers to the pointers. pointers to the pointers is shown in the following code
 
-```
+```c
 void showPointers()
 {
     int var=15;
@@ -47,7 +47,7 @@ It is always a good practice to assign a NULL value to a pointer variable in cas
 
 The NULL pointer is a constant with a value of zero defined in several standard libraries. Consider the following program:
 
-```
+```c
 void showNullPointers()
 {
     int var=8;
@@ -62,12 +62,12 @@ On most of the operating systems, programs are not permitted to access memory at
 
 ###C Pointer Arithmetic
 To understand pointer arithmetic, let us consider that ptr is an integer pointer which points to the address 1000. Assuming 32-bit integers, let us perform the following arithmetic operation on the pointer:
-```
+```c
 ptr++
 ```
 Now, after the above operation, the ptr will point to the location 1004 because each time ptr is incremented, it will point to the next integer location which is 4 bytes next to the current location. This operation will move the pointer to next memory location without impacting actual value at the memory location. If ptr points to a character whose address is 1000, then above operation will point to the location 1001 because next character will be available at 1001. Because character needs 1 byte memory. 
 
-```
+```c
 const int MAX=3;
 void showPointerArithmatic()
 {
@@ -94,13 +94,13 @@ void showPointerArithmatic()
 ```
 ###C - Array of pointers
 There may be a situation when we want to maintain an array, which can store pointers to an int or char or any other data type available. Following is the declaration of an array of pointers to an integer:
-```
+```c
 int *ptr[MAX];
 ```
 
 This declares ptr as an array of MAX integer pointers. Thus, each element in ptr, now holds a pointer to an int value. Following example makes use of three integers, which will be stored in an array of pointers as follows:
 
-```
+```c
 void showArrayOfPointers()
 {
     int var[] ={10,100, 1000};

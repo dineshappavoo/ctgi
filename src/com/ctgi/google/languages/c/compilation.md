@@ -57,7 +57,7 @@ Comments are stripped off
 Expansion of the included files
 ```
 To understand preprocessing better, you can compile the above ‘print.c’ program using flag -E, which will print the preprocessed output to stdout.
-```
+```c
 $ gcc -Wall -E print.c
 ```
 Even better, you can use flag ‘-save-temps’ as shown below. ‘-save-temps’ flag instructs compiler to store the temporary intermediate files used by the gcc compiler in the current directory.

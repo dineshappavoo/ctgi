@@ -74,6 +74,14 @@ ALGORITHMS:
             19861 - True because the symmetry 19861
 33. Generate all 3 digit symmetry values. Generalize the problem to generate all n digit symmetry values.
 34. Write a function to insert a value into a circular doubly linked list whose values are sorted and head is the minimum value.
+35. Given an input value n print the number and count value starting from 1. This process stops after n lines.to
+    For example  n=5
+        1
+        1 1
+        2 1
+        1 2 1 1
+        1 1 1 2 1 1 1 1
+        1 1
 
 
 
