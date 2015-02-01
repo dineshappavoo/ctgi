@@ -52,7 +52,7 @@ public class BitOperations {
 	{
 		num = num & (~(1<<i));
 		return num | (1<<i);
-	}
+	}	
 	
 	/**
 	 * Method to do EX-OR operation
