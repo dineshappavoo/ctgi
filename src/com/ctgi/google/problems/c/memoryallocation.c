@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 void* aligned_malloc(size_t required_bytes, size_t alignment)
 {
     void* p1; // original block
@@ -24,6 +25,7 @@ void* aligned_malloc(size_t required_bytes, size_t alignment)
     return p2;
 }
 
+
 void aligned_free(void *p)
 {
     free(((void**)p)[-1]);
@@ -37,5 +39,7 @@ int main (int argc, char *argv[])
     printf ("%s: %p\n", argv[1], p);
     
     aligned_free (p);
+    
+    printf("%x\n",p+2);
     return 0;
 }
