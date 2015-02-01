@@ -164,11 +164,11 @@ int main()
 }
 ```
 
-###AlignedMalloc
+###Aligned Malloc
 The address of a block returned by malloc or realloc in GNU systems is always a multiple of eight (or sixteen on 64-bit systems). If you need a block whose address is a multiple of a higher power of two than that, use aligned_alloc or posix_memalign. aligned_alloc and posix_memalign are declared in stdlib.h.
 
 Write an aligned malloc & free function that takes number of bytes and aligned byte (which is always power of 2)
-EXAMPLE
+####EXAMPLE
 align_malloc (1000,128) will return a memory address that is a multiple of 128 and that points to memory of size 1000 bytes.
 aligned_free() will free memory allocated by align_malloc.
 
@@ -176,10 +176,10 @@ The aligned_alloc function allocates a block of size bytes whose address is a mu
 
 The aligned_alloc function returns a null pointer on error and sets errno to one of the following values:
 
-ENOMEM
+####ENOMEM
 There was insufficient memory available to satisfy the request.
 
-EINVAL
+####EINVAL
 alignment is not a power of two.
 
 This function was introduced in ISO C11 and hence may have better portability to modern non-POSIX systems than posix_memalign.
@@ -188,18 +188,22 @@ This function was introduced in ISO C11 and hence may have better portability to
 For a more generic memory allocation function, the caller doesn't want to have to keep track of two pointers (one to use and one to free).
 So you store a pointer to the 'real' buffer below the aligned buffer.
 
-Steps:
+####Steps:
 1. We will use malloc routine provided by C to implement the functionality.
 Allocate memory of size (bytes required + alignment Ð 1 + sizeof(void*)) using malloc.
 alignment: malloc can give us any address and we need to find a multiple of alignment.
 (Therefore, at maximum multiple of alignment, we will be alignment-1 bytes away from any location.)
 sizeof(size_t): We are returning a modified memory pointer to user, which is different from the one that would be returned by malloc. We also need to extra space to store the address given by malloc, so that we can free memory in aligned_free by calling free routine provided by C.
+
 2. If it returns NULL, then aligned_malloc will fail and we return NULL.
+
 3. Else, find the aligned memory address which is a multiple of alignment (call this p2).
+
 4. Store the address returned by malloc (e.g., p1 is just size_t bytes ahead of p2), which will be required by aligned_free.
+
 5. Return p2.
 
-You can find the code here
+You can find the code here,
 ```c
 void* aligned_malloc(size_t required_bytes, size_t alignment)
 {
