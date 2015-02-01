@@ -1,0 +1,13 @@
+linux3% gcc -c arraytest.c
+linux3% nasm -f elf arrayinc.asm
+linux3% gcc arraytest.o arrayinc.o
+linux3%
+linux3% a.out
+sizeof(int) = 4
+
+Original array:
+A[0] = 2  A[1] = 7  A[2] = 19  A[3] = 45  A[4] = 3  A[5] = 42  A[6] = 9
+
+Modified array:
+A[0] = 3  A[1] = 8  A[2] = 20  A[3] = 46  A[4] = 4  A[5] = 43  A[6] = 10
+linux3%
