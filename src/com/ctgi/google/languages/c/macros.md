@@ -83,7 +83,7 @@ void showMacroWithCode()
 
 You can find the source code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/c/code/macros.c)
 
-***Macros with return values
+###Macros with return values
 
 In real world macros may have large number of computations. So there will be scenarios to declare a new variable , for, while loops etc.
 
@@ -127,7 +127,7 @@ int main() {
     return 0;
 }
 ```
-
+You can use it ({ }) braces unless you need to be portable to compilers other than GCC (and Clang/LLVM).
 
   
 ###Referrences
