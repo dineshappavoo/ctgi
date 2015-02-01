@@ -1,140 +1,169 @@
-C Language - Malloc
-=====================
+C Language - Malloc - Calloc - 
+============================
+###Malloc
 C dynamic memory allocation refers to performing manual memory management for dynamic memory allocation in the C programming language via a group of functions in the C standard library, namely malloc, realloc, calloc and free.
 
 The C library function void *malloc(size_t size) allocates the requested memory and returns a pointer to it.
 
+####Following is the declaration for malloc() function.
+
+void *malloc(size_t size)
+
+**Parameters**
+size -- This is the size of the memory block, in bytes.
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-int main(void);
-void showMacrosWithoutDefinition(void);
-
-# define macro1
-const int MAX=3;
 int main()
 {
-    showMacrosWithoutDefinition();
-    return 0;
-}
-void showMacrosWithoutDefinition()
-{
-    #ifdef macro1
-        printf("Macro1 is defined\n");
-    #endif
-}
-```
-Now, one would question where are these testing macros used. Well, mostly these type of testing macros are used in a big project involving many source and header files. In such big projects, to avoid including a single header more than once (directly and indirectly through another header file) a macro is defined in the original header and this macro is tested before including the header anywhere so as to be sure that if the macros is already defined then there is no need to include the header as it has already been included (directly or indirectly).
+   char *str;
 
-###Macros with values
-There are macros that have some values associated with them. For example :
-```c
-#define MACRO1 25
-```
-So, in the above example, we defined a macro MACRO1 which has value 25. The concept is that in the preprocessing stage of the compilation process, the name of this macro is replaced with macros value all over the code. For example :
+   /* Initial memory allocation */
+   str = (char *) malloc(15);
+   strcpy(str, "tutorialspoint");
+   printf("String = %s,  Address = %u\n", str, str);
 
-```c
-# define BUFFER_SIZE 1024
-void showMacrosWithValues()
-{
-    #ifdef BUFFER_SIZE
-        printf("\BUFFER_SIZE defined with value [%d]\n", BUFFER_SIZE);
-    #endif
+   /* Reallocating memory */
+   str = (char *) realloc(str, 25);
+   strcat(str, ".com");
+   printf("String = %s,  Address = %u\n", str, str);
+
+   free(str);
+   
+   return(0);
 }
 ```
 
-###Defining Macros from the command line
-Macros can be given values from command line.
+###Calloc
+The C library function void *calloc(size_t nitems, size_t size) allocates the requested memory and returns a pointer to it. The difference in malloc and calloc is that malloc does not set the memory to zero where as calloc sets allocated memory to zero.
+
+####Declaration
+Following is the declaration for calloc() function.
+
+void *calloc(size_t nitems, size_t size)
+
+**Parameters**
+* nitems -- This is the number of elements to be allocated.
+* size -- This is the size of elements.
+
+####Return Value
+This function returns a pointer to the allocated memory, or NULL if the request fails.
+
 ```c
 #include <stdio.h>
-int main(void)
+#include <stdlib.h>
+
+int main()
 {
-    //Note that the BASE_VALUE macro is not defined in this src code
-    #ifdef BASE_VALUE
-        printf("\BASE_VALUE defined with value [%d]\n", BASE_VALUE);
-    #endif
-    return 0;
+   int i, n;
+   int *a;
+
+   printf("Number of elements to be entered:");
+   scanf("%d",&n);
+
+   a = (int*)calloc(n, sizeof(int));
+   printf("Enter %d numbers:\n",n);
+   for( i=0 ; i < n ; i++ ) 
+   {
+      scanf("%d",&a[i]);
+   }
+
+   printf("The numbers entered are: ");
+   for( i=0 ; i < n ; i++ ) {
+      printf("%d ",a[i]);
+   }
+   
+   return(0);
 }
 ```
-In the code above, the macro MACRO1 is being tested and its value is being used but it is not defined anywhere. Lets define it from the command line :
+###Free()
+The C library function void free(void *ptr) deallocates the memory previously allocated by a call to calloc, malloc, or realloc.
+
+####Declaration
+Following is the declaration for free() function.
+
+void free(void *ptr)
+
+**Parameters**
+ptr -- This is the pointer to a memory block previously allocated with malloc, calloc or realloc to be deallocated.If a null pointer is passed as argument, no action occurs
+
+**Return Value**
+This function does not return any value.
+
 ```c
-$ gcc -Wall -DBASE_VALUE=25 macros.c -o macros
-$ ./macro
+#include <stdio.h>
+#include <stdlib.h>
 
-BASE_VALUE Defined with value [25]
-```
-So we see that through the command line option -D[Macroname]=[Value] it was made possible.
-
-###Macros with piece of code as their values
-As discussed in the introduction part, macros can also contain small piece of code as their values. Those piece of code which are very small and are being used repetitively in the code are assigned to macros. For example :
-
-```c
-# define SQUARE(x) x * x
-void showMacroWithCode()
+int main()
 {
-#ifdef SQUARE
-    printf("SQUARE is defined\n");
-#endif
-    int var=5;
-    printf("Macro function result %d\n", SQUARE(var));
-    
+   char *str;
+
+   /* Initial memory allocation */
+   str = (char *) malloc(15);
+   strcpy(str, "tutorialspoint");
+   printf("String = %s,  Address = %u\n", str, str);
+
+   /* Reallocating memory */
+   str = (char *) realloc(str, 25);
+   strcat(str, ".com");
+   printf("String = %s,  Address = %u\n", str, str);
+
+   /* Deallocate allocated memory */
+   free(str);
+   
+   return(0);
 }
 ```
 
-You can find the source code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/c/code/macros.c)
-
-###Macros with return values
-
-In real world macros may have large number of computations. So there will be scenarios to declare a new variable , for, while loops etc.
-
-A compound statement enclosed in parentheses may appear as an expression in GNU C. This allows you to use loops, switches, and local variables within an expression.
-
-Recall that a compound statement is a sequence of statements surrounded by braces; in this construct, parentheses go around the braces. For example:
+Let us compile and run the above program, this will produce the following result:
 
 ```c
-# define countNoOfOnes(num) ({int count=0;  while(num>0) { if((num&1)>0)   {\
-        count++;\
-    }\
-    num = num>>1;\
-}\
-count;\
-})
+String = tutorialspoint, Address = 355090448
+String = tutorialspoint.com, Address = 355090448
 ```
-The last thing in the compound statement should be an expression followed by a semicolon; the value of this subexpression serves as the value of the entire construct. (If you use some other kind of statement last within the braces, the construct has type void, and thus effectively no value.)
 
-This feature is especially useful in making macro definitions “safe” (so that they evaluate each operand exactly once).
+###Realloc()
+The C library function void *realloc(void *ptr, size_t size) attempts to resize the memory block pointed to by ptr that was previously allocated with a call to malloc or calloc.
 
-code for no. of bits in an int and check whether a bit in an int is set are below:
+###Declaration
+Following is the declaration for realloc() function.
+
+void *realloc(void *ptr, size_t size)
+
+**Parameters**
+ptr -- This is the pointer to a memory block previously allocated with malloc, calloc or realloc to be reallocated.If this is NULL, a new block is allocated and a pointer to it is returned by the function.
+
+size -- This is the new size for the memory block, in bytes.If it is 0 and ptr points to an existing block of memory, the memory block pointed by ptr is deallocated and a NULL pointer is returned.
+
+**Return Value**
+This function returns a pointer to the newly allocated memory, or NULL if the request fails.
 
 ```c
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-# define isNthBitSet(num, i)  (num & (1<<i))>0
-# define countNoOfOnes(num) ({int count=0;  while(num>0) { if((num&1)>0)   {\
-        count++;\
-    }\
-    num = num>>1;\
-}\
-count;\
-})
-int main() {
-    
-    int a=7;
-    int i=2;
-    printf("Is Nth bit set %d\n",isNthBitSet(a,i));
-    printf("No of Bits set %d\n",countNoOfOnes(a));
-    return 0;
+int main()
+{
+   char *str;
+
+   /* Initial memory allocation */
+   str = (char *) malloc(15);
+   strcpy(str, "tutorialspoint");
+   printf("String = %s,  Address = %u\n", str, str);
+
+   /* Reallocating memory */
+   str = (char *) realloc(str, 25);
+   strcat(str, ".com");
+   printf("String = %s,  Address = %u\n", str, str);
+
+   free(str);
+   
+   return(0);
 }
 ```
-You can use it ({ }) braces unless you need to be portable to compilers other than GCC (and Clang/LLVM).
-
-  
 ###Referrences
 
 * [TutorialsPoint.com](http://www.tutorialspoint.com/cprogramming/c_pointers.htm)
-* [thegeekstuff.com](http://www.thegeekstuff.com/2012/05/c-macros/)
 
