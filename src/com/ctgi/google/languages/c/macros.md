@@ -82,6 +82,53 @@ void showMacroWithCode()
 ```
 
 You can find the source code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/c/code/macros.c)
+
+***Macros with return values
+
+In real world macros may have large number of computations. So there will be scenarios to declare a new variable , for, while loops etc.
+
+A compound statement enclosed in parentheses may appear as an expression in GNU C. This allows you to use loops, switches, and local variables within an expression.
+
+Recall that a compound statement is a sequence of statements surrounded by braces; in this construct, parentheses go around the braces. For example:
+
+```c
+# define countNoOfOnes(num) ({int count=0;  while(num>0) { if((num&1)>0)   {\
+        count++;\
+    }\
+    num = num>>1;\
+}\
+count;\
+})
+```
+The last thing in the compound statement should be an expression followed by a semicolon; the value of this subexpression serves as the value of the entire construct. (If you use some other kind of statement last within the braces, the construct has type void, and thus effectively no value.)
+
+This feature is especially useful in making macro definitions “safe” (so that they evaluate each operand exactly once).
+
+code for no. of bits in an int and check whether a bit in an int is set are below:
+
+```c
+#include<stdio.h>
+#include<stdbool.h>
+
+# define isNthBitSet(num, i)  (num & (1<<i))>0
+# define countNoOfOnes(num) ({int count=0;  while(num>0) { if((num&1)>0)   {\
+        count++;\
+    }\
+    num = num>>1;\
+}\
+count;\
+})
+int main() {
+    
+    int a=7;
+    int i=2;
+    printf("Is Nth bit set %d\n",isNthBitSet(a,i));
+    printf("No of Bits set %d\n",countNoOfOnes(a));
+    return 0;
+}
+```
+
+
   
 ###Referrences
 
