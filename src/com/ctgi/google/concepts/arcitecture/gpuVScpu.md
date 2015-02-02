@@ -26,7 +26,17 @@ GPUs have thousands of cores to process parallel workloads efficiently
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=-P28LKWTzrI
 " target="_blank"><img src="http://img.youtube.com/vi/-P28LKWTzrI/0.jpg" 
 alt="http://img.youtube.com/vi/-P28LKWTzrI/15.jpg" width="540" height="380" border="10" /></a>
- 
+
+
+Graphics processors (GPUs) provide a vast number of simple, data-parallel, deeply multithreaded cores and very high memory bandwidths as illustrated by Figure 1. GPU architectures are becoming increasingly programmable, offering the potential for dramatic speedups for a variety of general purpose applications compared to contemporary general-purpose processors (CPUs).
+
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/gputech_perf_chart.png "GPU Vs CPU flops chart ")
+
+The reason behind the discrepancy in floating-point capability between the CPU and the GPU is that the GPU is specialized for compute-intensive, highly parallel computation Ð exactly what graphics rendering is about Ð and therefore designed such that about 80% of transistors are devoted to data processing rather than data caching and flow control Because the same function is executed on each element of data with high arithmetic intensity as schematically illustrated by Figure 2
+
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/gputech_f2.png "GPU Vs CPU arch")
+
+While GPU has many benefits such as more computing power, larger memory bandwidth, and low power consumption regarding the high computing ability, there are some constraints to fully utilize its processing power. These constraints make performance optimization more difficult and also its debugging environment is not as powerful as in general CPU. Therefore, developing a code with GPU can takes more time and need more sophisticated work. In addition, GPU code runs in parallel so that data partition and synchronization technique are needed. In some cases of algorithm, there are often no algorithms which can be fit into GPU so that a new parallel algorithm for GPU needs to be developed. 
 
 ###Referrences
 
