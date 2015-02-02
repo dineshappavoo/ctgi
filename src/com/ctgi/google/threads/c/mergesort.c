@@ -136,13 +136,13 @@ int main() {
     
     tArgs[0] = (struct threadArgs*) malloc(sizeof(struct threadArgs));
     tArgs[0]->threadId = 0;
-    tArgs[0]->low=0;
-    tArgs[0]->high=mid;
+    tArgs[0]->low=mid+1;
+    tArgs[0]->high=high;
     
     tArgs[1] = (struct threadArgs*) malloc(sizeof(struct threadArgs));
     tArgs[1]->threadId = 1;
-    tArgs[1]->low=mid+1;
-    tArgs[1]->high=high;
+    tArgs[1]->low=0;
+    tArgs[1]->high=mid;
 
     printf("Test call");
     
