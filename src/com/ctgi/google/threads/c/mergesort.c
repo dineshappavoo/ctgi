@@ -28,17 +28,40 @@ void mergeSort(int *arr, int low, int high)
         int mid = (low + high)/2;
         mergeSort(arr, low, mid);
         mergeSort(arr, mid+1, high);
-        int *mergedRes = merge(arr, low, mid, high);
+        merge(arr, low, mid, high);
     }
 }
 
-int* merge(int arr, int low, int mid, int high)
+int* merge(int *arr, int low, int mid, int high)
 {
     int size = (int) sizeof(arr)/sizeof(int);
+    printf("Array Size %d\n",size);
+
     int *auxArr = malloc(sizeof(int) * size);
+    for(int i=0;i<size;i++)
+    {
+        auxArr[i] = arr[i];
+    }
     
-    printf("%d\n",size);
-    return auxArr;
+    int current = low;
+    int right = mid+1;
+    int left = low;
+    while((left<=mid)&&(right<high))
+    {
+        if(auxArr[left]<=auxArr[right])
+        {
+            arr[current++] = auxArr[left++];
+        }else
+        {
+            arr[current++] = auxArr[right++];
+        }
+    }
+    int remaining = mid-left;
+    for(int j=0;j<=remaining;j++)
+    {
+        arr[left++] = auxArr[j];
+    }
+    return arr;
 }
 
 int main() {
