@@ -23,9 +23,9 @@ GPUs have thousands of cores to process parallel workloads efficiently
 
 ###Video Clip from NVIDIA
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=P28LKWTzrI
-" target="_blank"><img src="http://img.youtube.com/vi/P28LKWTzrI/0.jpg" 
-alt="http://img.youtube.com/vi/P28LKWTzrI/15.jpg" width="540" height="380" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=-P28LKWTzrI
+" target="_blank"><img src="http://img.youtube.com/vi/-P28LKWTzrI/0.jpg" 
+alt="http://img.youtube.com/vi/-P28LKWTzrI/15.jpg" width="540" height="380" border="10" /></a>
  
 
 ###Referrences
