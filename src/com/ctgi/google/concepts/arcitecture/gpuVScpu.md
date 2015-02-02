@@ -42,4 +42,5 @@ While GPU has many benefits such as more computing power, larger memory bandwidt
 
 * [nvidia.com](http://www.nvidia.com/object/what-is-gpu-computing.html)
 * [wikipedia.org](http://en.wikipedia.org/wiki/Graphics_processing_unit)
+* [allegroviva.com](http://allegroviva.com/gpu-computing/difference-between-gpu-and-cpu/)
 
