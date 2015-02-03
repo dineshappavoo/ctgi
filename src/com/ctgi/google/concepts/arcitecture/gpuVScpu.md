@@ -13,7 +13,7 @@ GPU-accelerated computing offers unprecedented application performance by offloa
 
 ![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/how-gpu-acceleration-works.png "GPU Acceleration")
 
-CPU VERSUS GPU
+###CPU VERSUS GPU
 A simple way to understand the difference between a CPU and GPU is to compare how they process tasks. A CPU consists of a few cores optimized for sequential serial processing while a GPU has a massively parallel architecture consisting of thousands of smaller, more efficient cores designed for handling multiple tasks simultaneously.
  
 GPUs have thousands of cores to process parallel workloads efficiently
