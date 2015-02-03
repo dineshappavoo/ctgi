@@ -93,46 +93,29 @@ int main() {
         arr[i] = SIZE-i;
     }
     
-    printf("Test call 4\n");
+    printf("UNSORTED ARRAY\n");
 
     for(int i=0;i<SIZE;i++)
     {
         printf("%d\t",arr[i]);
     }
-    printf("Test call 3\n");
-
     
     printf("\n");
     //mergeSort(arr,0, SIZE-1);
 
-
-    
     //Merge sort through multithreading
     int low=0;
     int high=0;
     int mid=0;
 
-    printf("Test call 2\n");
 
     high = SIZE - 1;
-
     mid = (low+high)/2;
 
     NUM_OF_THREADS = 2;
 
     struct threadArgs** tArgs;
     tArgs = (struct threadArgs**) malloc(NUM_OF_THREADS * sizeof(struct threadArgs*));
-
-    printf("Test call 1");
-
-    /*
-    for(int i=0;i<NUM_OF_THREADS;i++)
-    {
-        tArgs[i] = (struct threadArgs*) malloc(sizeof(struct threadArgs));
-        tArgs[i]->threadId = i;
-        tArgs[i]->low
-
-    }*/
     
     tArgs[0] = (struct threadArgs*) malloc(sizeof(struct threadArgs));
     tArgs[0]->threadId = 0;
@@ -143,21 +126,17 @@ int main() {
     tArgs[1]->threadId = 1;
     tArgs[1]->low=0;
     tArgs[1]->high=mid;
-
-    printf("Test call");
     
     pthread_t pt[2];
     
     for(int i=0;i<2;i++)
     {
-        pthread_create(&pt[i], NULL, mergeSortThreadFunc, (void*) &tArgs[i] );
+        pthread_create(&pt[i], NULL, mergeSortThreadFunc, (void*) tArgs[i] );
         pthread_join(pt[i], NULL);
     }
-    printf("Test call 0");
-
     
     merge(arr,low,mid,high);
-    printf("\n");
+    printf("SORTED ARRAY:\n");
 
     for(int i=0;i<SIZE;i++)
     {
@@ -165,8 +144,6 @@ int main() {
     }
     
     printf("\n");
-    
-    //int size = (int)(sizeof(pt))/(int)sizeof(pthread_t);
     
     return 0;
 }

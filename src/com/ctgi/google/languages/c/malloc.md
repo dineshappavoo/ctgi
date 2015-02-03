@@ -234,4 +234,4 @@ void aligned_free(void *p)
 ###Referrences
 
 * [TutorialsPoint.com](http://www.tutorialspoint.com/cprogramming/c_pointers.htm)
-* []()
+* [sites.google.com/site/ruslancray](https://sites.google.com/site/ruslancray/lab/bookshelf/interview/ci/low-level/write-an-aligned-malloc-free-function)
