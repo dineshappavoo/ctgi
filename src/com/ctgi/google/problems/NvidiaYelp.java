@@ -6,6 +6,17 @@ package com.ctgi.google.problems;
 /**
  * @author Dany
  *
+ *Where do you see yourself five years from now?
+
+"In five years I hope to be working with an employer in an increasingly responsible position, that enables me to utilize my talents and work closely with my colleagues in solving important problems. I see myself taking on new and exciting challenges in an enjoyable environment and hopefully this will be with your company."
+
+
+
+What type of decisions do you have difficulty making?
+"I sometimes have difficulty choosing between two equally good ideas." or "I used to have difficulty saying 'no' to people until I learned to better set priorities."
+ *
+ *
+ *
  */
 public class NvidiaYelp {
 
