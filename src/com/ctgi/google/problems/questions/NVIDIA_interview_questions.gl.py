@@ -23,3 +23,10 @@ NVIDIA:
 22.There is a singly linked list of ints, write a function that takes the head pointer, and prints the list in reverse order.given 2 unsigned ints a and b, return 1 unsigned int = a/b, rounded to nearest int without float operation
 23.There are 2 round of phone interview. first one consist of a lot of basic c/c++ questions as well as kernel/os basic questions like semaphone, mutual exclusion, memory allocation,etc. The second interview consist of some leadership question like how to you manage your relation with teammate or your project or your work.
 24.Discribe mutual exclusion, how to implement it.
+25.Write a function in C to create a new BST which is the mirror image of a given tree.
+26.Consider the statement
+    result = a ? b : c;
+    Implement the above statement without using any conditional statements.
+27.Write a multi threaded C code with one thread printing all even numbers and the other all odd numbers. The output should always be in sequence
+    ie. 0,1,2,3,4....etc
+
