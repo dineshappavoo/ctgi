@@ -56,7 +56,7 @@ int main(void)
     return 0;
 }
 ```
-In the code above, the macro MACRO1 is being tested and its value is being used but it is not defined anywhere. Lets define it from the command line :
+In the code above, the macro BASE_VALUE is being tested and its value is being used but it is not defined anywhere. Lets define it from the command line :
 ```c
 $ gcc -Wall -DBASE_VALUE=25 macros.c -o macros
 $ ./macro
