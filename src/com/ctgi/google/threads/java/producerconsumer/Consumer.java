@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.threads.producerconsumer;
+package com.ctgi.google.threads.java.producerconsumer;
 
 import java.util.concurrent.BlockingQueue;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.threads.producerconsumer;
+package com.ctgi.google.threads.java.producerconsumer;
 
 import java.io.FileNotFoundException;
 import java.util.concurrent.ArrayBlockingQueue;

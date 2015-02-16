@@ -85,7 +85,7 @@ The binary semaphore useQueue ensures that the integrity of the state of the que
 The emptyCount is initially N, fullCount is initially 0, and useQueue is initially 1.
 
 The producer does the following repeatedly:
-```
+```c
 produce:
     P(emptyCount)
     P(useQueue)
@@ -95,7 +95,7 @@ produce:
 ```
 The consumer does the following repeatedly
 
-```
+```c
 consume:
     P(fullCount)
     P(useQueue)

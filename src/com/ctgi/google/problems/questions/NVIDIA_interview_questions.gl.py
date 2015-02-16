@@ -29,4 +29,5 @@ NVIDIA:
     Implement the above statement without using any conditional statements.
 27.Write a multi threaded C code with one thread printing all even numbers and the other all odd numbers. The output should always be in sequence
     ie. 0,1,2,3,4....etc
+28. 
 
