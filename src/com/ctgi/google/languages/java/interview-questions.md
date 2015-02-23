@@ -351,7 +351,7 @@ public class Exhibitionist {
 	}
 }
 ```
-And here’s a corresponding Observer example:
+And here's a corresponding Observer example:
 
 ```java
 public class Voyeur implements Observer {
@@ -371,7 +371,7 @@ public class Voyeur implements Observer {
 There are a couple of downsides of using this though:
 
 The ```observed``` class must extend Observable and thus prevents it from extending a more desirable class (refer to our earlier discussion of multiple inheritance)
-```Observed``` and ```observer``` classes are tightly coupled causing potential for ```NullPointerException```’s if you are not careful.
+```Observed``` and ```observer``` classes are tightly coupled causing potential for ```NullPointerException```'s if you are not careful.
 To circumvent the first issue, an advanced developer can use a proxy (delegate) Observable object instead of extending it. To address the second issue, one can use a loosely coupled publish-subscribe pattern. For example, you might use Google’s Guava Library EventBus system where objects connect to a middleman.
 
 ####14. Describe strong, soft, and weak references in Java. When, why, and how would you use each?
@@ -385,13 +385,14 @@ There are, however, two additional reference strengths in Java that you can spec
 
 Why are soft and weak references needed and when are they useful?
 
-Java’s garbage collector (GC) is a background process that periodically runs to free “dead” objects (one’s without strong references) from your application’s memory heap. Although the GC sometimes gives the impression of being a magical black box, it really isn’t that magical after all. Sometimes you have to help it out to prevent memory from filling up.
+Java's garbage collector (GC) is a background process that periodically runs to free ```dead``` objects (one's without strong references) from your application's memory heap. Although the GC sometimes gives the impression of being a magical black box, it really isn’t that magical after all. Sometimes you have to help it out to prevent memory from filling up.
 
-More specifically, the GC won’t free objects that are strongly reachable from a chain of strongly referenced objects. What that simply means is that, if the GC still thinks an object is needed, it leaves it alone, which is normally what you want (i.e., you don’t want an object you need to suddenly disappear when the GC kicks in).
+More specifically, the GC won't free objects that are strongly reachable from a chain of strongly referenced objects. What that simply means is that, if the GC still thinks an object is needed, it leaves it alone, which is normally what you want (i.e., you don’t want an object you need to suddenly disappear when the GC kicks in).
 
 But sometimes strong references are too strong which is where soft and weak references can come in handy. Specifically:
 
 **SoftReference** objects are cleared at the discretion of the garbage collector in response to memory demand. Soft references are most often used to implement memory-sensitive caches.
+
 **WeakReference** objects do not prevent their referents from being made finalizable, finalized, and then reclaimed. Weak references are most often used to implement canonicalized mappings.
 
 ###Referrences
