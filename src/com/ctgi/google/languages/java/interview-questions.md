@@ -254,11 +254,11 @@ One of the most common and effective techniques for avoiding these issues is to 
 
 In addition, as of JDK 8, Java has introduced support for the ```Optional<T>``` class (or if you’re using an earlier version of Java, you can use the ```Optional<T>``` class in the ```Guava``` libraries. Optional<T> represents and wraps absence and presence with a value. While Optional adds a bit more ceremony to your code, by forcing you to unwrap the Optional to obtain the ```non-null``` value, it avoids what might otherwise result in a ```NullPointerException```.
 
-####11. What is “boxing” and what are some of its problems to beware of?
+####11. What is "boxing" and what are some of its problems to beware of?
 
 Java’s primitive types are long, int, short, float, double, char, byte and boolean. Often it’s desirable to store primitive values as objects in various data structures that only accept objects such as ArrayList, HashMap, etc. So Java introduced the concept of “boxing” which boxes up primitives into object class equivalents, e.g., Integer for int, Float for float, and Boolean for boolean. Of course, as objects, they incur the overhead of object allocation, memory bloat and method calls, but they do achieve their purpose at some expense.
 
-“Autoboxing” is the automatic conversion by the compiler of primitives to boxed objects and vice versa. This is simply a convenience, e.g.:
+"Autoboxing" is the automatic conversion by the compiler of primitives to boxed objects and vice versa. This is simply a convenience, e.g.:
 
 ```java
 ArrayList<Integer> ints = new ArrayList<Integer>();
@@ -283,7 +283,7 @@ But even more troubling is the following seemingly inexplicable distinction:
 System.out.println(Integer.valueOf(127) == Integer.valueOf(127));   // true
 System.out.println(Integer.valueOf(128) == Integer.valueOf(128));   // false
 ```
-Huh? How can one of those be true and the other be false? That doesn’t seem to make any sense. Indeed, the answer is quite subtle.
+Huh? How can one of those be true and the other be false? That doesn't seem to make any sense. Indeed, the answer is quite subtle.
 
 As explained in an easily overlooked note in the Javadoc for the Integer class, the valueOf() method method caches Integer objects for values in the range -128 to 127, inclusive, and may cache other values outside of this range as well. Therefore, the Integer object returned by one call to Integer.valueOf(127) will match the Integer object returned by another call to Integer.valueOf(127), since it is cached. But outside the range -128 to 127, Integer.valueOf() calls, even for the same value, will not necessarily return the same Integer object (since they are not necessarily cached).
 
@@ -322,6 +322,77 @@ List b = new ArrayList();
 return a.getClass() == b.getClass();  // returns true (understandably)
 ```
 And thus, in the compiled code, a and b are both simply untyped ArrayList objects, and the fact that one was an ```ArrayList<String>``` and the other was an ```ArrayList<Integer>``` is lost. Although in practice type erasure-related issues rarely cause problems for developers, it is an important issue to be aware of and can in certain cases lead to really ```gnarly``` bugs.
+
+####13. Describe the the Observer pattern and how to use it in Java. Provide an example.
+
+The ```Observer``` pattern lets objects sign up to receive notifications from an observed object when it changes. Java has built-in support with the Observable class and Observer interface.
+
+Here’s a simple example of an implementation of an Observable:
+
+```java
+public class Exhibitionist {
+	MyObservable myObservable = new MyObservable();
+
+	public Exhibitionist() {}
+
+	public java.util.Observable getObservable() {
+		return myObservable;
+	}
+
+	private void trigger(String condition) {
+		myObservable.invalidate();
+		myObservable.notifyObservers(condition);
+	}
+
+	private class MyObservable extends java.util.Observable {
+		private void invalidate() {
+			setChanged();
+		}
+	}
+}
+```
+And here’s a corresponding Observer example:
+
+```java
+public class Voyeur implements Observer {
+
+	public Voyeur(Exhibitionist exhibitionist) {
+		// Register ourselves as interested in the Exhibitionist.
+		exhibitionist.getObservable().addObserver(this);
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		// Called when the observable notifies its observers.
+		System.out.println(arg.toString());
+	}
+}
+```
+There are a couple of downsides of using this though:
+
+The ```observed``` class must extend Observable and thus prevents it from extending a more desirable class (refer to our earlier discussion of multiple inheritance)
+```Observed``` and ```observer``` classes are tightly coupled causing potential for ```NullPointerException```’s if you are not careful.
+To circumvent the first issue, an advanced developer can use a proxy (delegate) Observable object instead of extending it. To address the second issue, one can use a loosely coupled publish-subscribe pattern. For example, you might use Google’s Guava Library EventBus system where objects connect to a middleman.
+
+####14. Describe strong, soft, and weak references in Java. When, why, and how would you use each?
+
+In Java, when you allocate a new object and assign its reference (simply a pointer) to a variable, a strong reference is created by default; e.g.:
+
+```java
+String name = new String(); // Strong reference
+```
+There are, however, two additional reference strengths in Java that you can specify explicitly: SoftReference and WeakReference. (There is actually one additional reference strength in Java which is known as a PhantomReference. This is so rarely used, though, that even highly experienced Java developers will most likely not be familiar with it, so we omit it from our discussion here.)
+
+Why are soft and weak references needed and when are they useful?
+
+Java’s garbage collector (GC) is a background process that periodically runs to free “dead” objects (one’s without strong references) from your application’s memory heap. Although the GC sometimes gives the impression of being a magical black box, it really isn’t that magical after all. Sometimes you have to help it out to prevent memory from filling up.
+
+More specifically, the GC won’t free objects that are strongly reachable from a chain of strongly referenced objects. What that simply means is that, if the GC still thinks an object is needed, it leaves it alone, which is normally what you want (i.e., you don’t want an object you need to suddenly disappear when the GC kicks in).
+
+But sometimes strong references are too strong which is where soft and weak references can come in handy. Specifically:
+
+**SoftReference** objects are cleared at the discretion of the garbage collector in response to memory demand. Soft references are most often used to implement memory-sensitive caches.
+**WeakReference** objects do not prevent their referents from being made finalizable, finalized, and then reclaimed. Weak references are most often used to implement canonicalized mappings.
 
 ###Referrences
 
