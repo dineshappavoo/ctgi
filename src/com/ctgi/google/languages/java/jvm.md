@@ -64,6 +64,14 @@ The Java virtual machine has no registers to hold intermediate data values. The 
 See Figure 5-3 for a graphical depiction of the memory areas the Java virtual machine creates for each thread. These areas are private to the owning thread. ***No thread can access the pc register or Java stack of another thread***.
 
 
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/jvmfig5-3.gif "JVM Internal threads")
+**Figure 5-3. Runtime data areas exclusive to each thread**
+
+Figure 5-3 shows a snapshot of a virtual machine instance in which three threads are executing. At the instant of the snapshot, threads one and two are executing Java methods. Thread three is executing a native method.
+
+In Figure 5-3, as in all graphical depictions of the Java stack in this book, the stacks are shown growing downwards. The "top" of each stack is shown at the bottom of the figure. Stack frames for currently executing methods are shown in a lighter shade. For threads that are currently executing a Java method, the pc register indicates the next instruction to execute. In Figure 5-3, such pc registers (the ones for threads one and two) are shown in a lighter shade. Because thread three is currently executing a native method, the contents of its pc register--the one shown in dark gray--is undefined.
+
+
 
 **1) Classloader:**
 
