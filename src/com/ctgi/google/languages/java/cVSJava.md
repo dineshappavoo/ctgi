@@ -11,9 +11,7 @@ Difference between C and Java
 |linking in the Math library	|	gcc -lm calculate.c	|	no special flags needed |
 |joint compilation	|	gcc main.c helper1.c helper2.c	|	javac Main.java - any dependent files are automatically re-compiled if needed |
 |execution	|	a.out loads and executes program	|	java Hello interprets byte code |
-|hello, world	|	```c
-#include<stdio.h> int main(void) {    printf("Hello\n");    return 0; }```	|	```java
-public class HelloWorld {    public static void main(String[] args) {         System.out.println("Hello");    } }``` |
+|hello, world	|	```#include<stdio.h> int main(void) {    printf("Hello\n");    return 0; }```	|	```public class HelloWorld {    public static void main(String[] args) {         System.out.println("Hello");    } }``` |
 |integer types	|	int usually 32 bit 2's complement; long usually 32 bit 2's complement	|	int is 32 bit 2's complement; long is 64 bit 2's complement |
 |floating point types	|	float usually 32 bit; double usually 64 bit	|	float is 32 bit IEEE 754 binary floating point; double is 64 bit IEEE 754 |
 |boolean type	|	use int: 0 for false, nonzero for true	|	boolean is its own type - stores value true or false |
