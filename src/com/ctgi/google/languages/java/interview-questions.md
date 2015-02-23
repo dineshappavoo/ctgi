@@ -228,12 +228,12 @@ The main argument against multiple inheritance is the complexity, and potential 
 
 Let’s consider a simple example. A university has people who are affiliated with it. Some are students, some are faculty members, some are administrators, and so on. So a simple inheritance scheme might have different types of people in different roles, all of whom inherit from one common “Person” class. The Person class could define an abstract getRole() method which would then be overridden by its subclasses to return the correct role type, i.e.:
 
-![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance1.png"multiple inheritance classes")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance1.png "multiple inheritance classes")
 
 
 But now what happens if we want to model a the role of a Teaching Assistant (TA)? Typically, a TA is both a grad student and a faculty member. This yields the classic diamond problem of multiple inheritance and the resulting ambiguity regarding the TA’s getRole() method:
 
-![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance2.png"multiple inheritance")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance2.png "multiple inheritance")
 
 
 (Incidentally, note the diamond shape of the above inheritance diagram, which is why this is referred to as the “diamond problem”.)
@@ -394,6 +394,9 @@ But sometimes strong references are too strong which is where soft and weak refe
 **SoftReference** objects are cleared at the discretion of the garbage collector in response to memory demand. Soft references are most often used to implement memory-sensitive caches.
 
 **WeakReference** objects do not prevent their referents from being made finalizable, finalized, and then reclaimed. Weak references are most often used to implement canonicalized mappings.
+
+
+Further Java interview questions can be found [here](http://www.tutorialspoint.com/java/java_interview_questions.htm)
 
 ###Referrences
 
