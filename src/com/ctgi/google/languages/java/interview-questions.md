@@ -244,6 +244,8 @@ Java 8, however, introduces a form of quasi-support for multiple inheritance by 
 
 For example, if A, B, and C are interfaces, B and C can each provide a different implementation to an abstract method of A, causing the diamond problem for any class D that implements B and C. Either class D must reimplement the method (the body of which can simply forward the call to one of the super implementations), or the ambiguity will be rejected as a compile error.
 
+
+
 ###Referrences
 
 * [toptal.com](http://www.toptal.com/java/)
