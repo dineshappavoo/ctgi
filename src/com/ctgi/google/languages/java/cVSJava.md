@@ -3,7 +3,7 @@ Difference between C and Java
 |Property | C | Java |
 |--------|---|-------|
 |type of language	|	function oriented	|	object oriented |
-|language type	|	```Compiled:``` takes your code & translates it into something the machine can understand-that is to say-0’s & 1’s-the machine-level code. That’s exactly what happens with our C code-it gets ‘compiled’.  | ```Intrepreted:``` the code is first transformed to what is called the bytecode. This bytecode is then executed by the JVM(Java Virtual Machine). For the same reason, JAVA code is more portable. |
+|language type	|	```Compiled:``` takes your code & translates it into something the machine can understand-that is to say-0's & 1's-the machine-level code. That's exactly what happens with our C code-it gets 'compiled'.  | ```Intrepreted:``` the code is first transformed to what is called the bytecode. This bytecode is then executed by the JVM(Java Virtual Machine). For the same reason, JAVA code is more portable. |
 |language level | C is a low-level language(difficult interpretation for the user, closer significance to the machine-level code) |	 JAVA is a high-level lagunage(abstracted from the machine-level details, closer significance to the program itself). |
 |approach	|	```C uses the top-down {sharp & smooth} approach```	In C, formulating the program begins by defining the whole and then splitting them into smaller elements.	|```JAVA uses the bottom-up {on the rocks} approach``` JAVA(and C++ and other OOP languages) follows the bottom-up approach where the smaller elements combine together to form the whole.|
 ||||
@@ -37,7 +37,7 @@ Difference between C and Java
 |accessing a data structure	|	a.numerator for elements	|	a.numerator for instance variables, c = a.plus(b) for methods |
 |pointer chasing	|	x->left->right	|	x.left.right |
 |allocating memory	|	malloc, realloc, calloc |	new |
-|de-allocating memory	|	```free``` C uses free to de-allocatechunks of memory for specific data(specified using the keyword ‘sizeof’). Hence in C, the memory is managed by the user	|	automatic garbage collection. JAVA uses a garbage collector that deletes the objects that no longer have any references to them. |
+|de-allocating memory	|	```free``` C uses free to de-allocate chunks of memory for specific data(specified using the keyword ‘sizeof’). Hence in C, the memory is managed by the user	|	automatic garbage collection. JAVA uses a garbage collector that deletes the objects that no longer have any references to them. |
 |memory allocation of data structures and arrays	|	heap, stack, data, or bss	|	heap |
 |buffer overflow	|	segmentation fault, core dump, unpredicatable program	|	checked run-time error exception |
 |declaring constants	|	const and #define	|	final |
@@ -68,4 +68,5 @@ Difference between C and Java
 ###Referrences
 
 * [princeton.edu](http://introcs.cs.princeton.edu/java/faq/c2java.html)
+* [durofy.com](http://www.durofy.com/10-major-differences-between-c-and-java/)
 
