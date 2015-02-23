@@ -65,11 +65,54 @@ See Figure 5-3 for a graphical depiction of the memory areas the Java virtual ma
 
 
 ![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/jvmfig5-3.gif "JVM Internal threads")
+
 **Figure 5-3. Runtime data areas exclusive to each thread**
 
 Figure 5-3 shows a snapshot of a virtual machine instance in which three threads are executing. At the instant of the snapshot, threads one and two are executing Java methods. Thread three is executing a native method.
 
 In Figure 5-3, as in all graphical depictions of the Java stack in this book, the stacks are shown growing downwards. The "top" of each stack is shown at the bottom of the figure. Stack frames for currently executing methods are shown in a lighter shade. For threads that are currently executing a Java method, the pc register indicates the next instruction to execute. In Figure 5-3, such pc registers (the ones for threads one and two) are shown in a lighter shade. Because thread three is currently executing a native method, the contents of its pc register--the one shown in dark gray--is undefined.
+
+####Data Types
+
+The Java virtual machine computes by performing operations on certain types of data. Both the data types and operations are strictly defined by the Java virtual machine specification. The data types can be divided into a set of primitive types and a reference type. Variables of the primitive types hold primitive values, and variables of the reference type hold reference values. Reference values refer to objects, but are not objects themselves. Primitive values, by contrast, do not refer to anything. They are the actual data themselves. You can see a graphical depiction of the Java virtual machine's families of data types in Figure 5-4.
+
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/jvmfig5-4.gif "JVM Data types")
+
+**Figure 5-4. Data types of the Java virtual machine**
+
+All the primitive types of the Java programming language are primitive types of the Java virtual machine. Although boolean qualifies as a primitive type of the Java virtual machine, the instruction set has very limited support for it. When a compiler translates Java source code into bytecodes, it uses ints or bytes to represent booleans. In the Java virtual machine, false is represented by integer zero and true by any non-zero integer. Operations involving boolean values use ints. Arrays of boolean are accessed as arrays of byte, though they may be represented on the heap as arrays of byte or as bit fields.
+
+The primitive types of the Java programming language other than boolean form the numeric types of the Java virtual machine. The numeric types are divided between the integral types: byte, short, int, long, and char, and the floating- point types: float and double. As with the Java programming language, the primitive types of the Java virtual machine have the same range everywhere. A long in the Java virtual machine always acts like a 64-bit signed twos complement number, independent of the underlying host platform.
+
+```The Java virtual machine works with one other primitive type that is unavailable to the Java programmer: the returnAddress type. This primitive type is used to implement finally clauses of Java programs. The use of the returnAddress type is described in detail in Chapter 18, "Finally Clauses."```
+
+The reference type of the Java virtual machine is cleverly named reference. Values of type reference come in three flavors: the class type, the interface type, and the array type. All three types have values that are references to dynamically created objects. The class type's values are references to class instances. The array type's values are references to arrays, which are full-fledged objects in the Java virtual machine. The interface type's values are references to class instances that implement an interface. One other reference value is the null value, which indicates the reference variable doesn't refer to any object.
+
+The Java virtual machine specification defines the range of values for each of the data types, but does not define their sizes. The number of bits used to store each data type value is a decision of the designers of individual implementations. The ranges of the Java virtual machines data type's are shown in Table 5-1. More information on the floating point ranges is given in Chapter 14, "Floating Point Arithmetic."
+
+
+|Type	|	Range|
+|-------|--------|
+|byte	|	8-bit signed two's complement integer (-27 to 27 - 1, inclusive)|
+|short	|	16-bit signed two's complement integer (-215 to 215 - 1, inclusive)|
+|int	|	32-bit signed two's complement integer (-231 to 231 - 1, inclusive)|
+|long	|	64-bit signed two's complement integer (-263 to 263 - 1, inclusive)|
+|char	|	16-bit unsigned Unicode character (0 to 216 - 1, inclusive)|
+|float	|	32-bit IEEE 754 single-precision float|
+|double	|	64-bit IEEE 754 double-precision float|
+|returnAddress	|	address of an opcode within the same method|
+|reference	|	reference to an object on the heap, or null|
+
+**Table 5-1. Ranges of the Java virtual machine's data types**
+
+####Word Size
+
+The basic unit of size for data values in the Java virtual machine is the word--a fixed size chosen by the designer of each Java virtual machine implementation. The word size must be large enough to hold a value of type byte, short, int, char, float, returnAddress, or reference. Two words must be large enough to hold a value of type long or double. An implementation designer must therefore choose a word size that is at least 32 bits, but otherwise can pick whatever word size will yield the most efficient implementation. The word size is often chosen to be the size of a native pointer on the host platform.
+
+The specification of many of the Java virtual machine's runtime data areas are based upon this abstract concept of a word. For example, two sections of a Java stack frame--the local variables and operand stack-- are defined in terms of words. These areas can contain values of any of the virtual machine's data types. When placed into the local variables or operand stack, a value occupies either one or two words.
+
+As they run, Java programs cannot determine the word size of their host virtual machine implementation. The word size does not affect the behavior of a program. It is only an internal attribute of a virtual machine implementation.
+
 
 
 
@@ -107,5 +150,6 @@ It contains:
 
 ###Referrences
 
-* [toptal.com](http://www.toptal.com/java/)
+* [artima.com](http://www.artima.com/insidejvm/ed2/jvm3.html)
+* [javatpoint.com](http://www.javatpoint.com/internal-details-of-jvm)
 
