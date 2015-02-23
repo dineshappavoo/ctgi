@@ -301,6 +301,27 @@ Executing the above code with sum declared as Long took 9194ms whereas the same 
 
 You can find the code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/java/codeJavaTest.java)
 
+####12. What is type erasure?
+
+The addition of ```Generics``` to the language has not been without its problems. A particularly thorny issue with Java ```Generics``` is that of type erasure.
+
+As an example, consider the following code snippet:
+
+```java
+List<String> a = new ArrayList<String>();
+List<Integer> b = new ArrayList<Integer>();
+return a.getClass() == b.getClass();  // returns true??!!
+```
+This should presumably return false since a and b are different class types (i.e., ArrayList<String> vs. ArrayList<Integer>), yet it returns true. Why?
+
+The culprit here is type erasure. Once the above code passes all Java compiler validation, the compiler erases the String and Integer types in the above example, to maintain backward compatibility with older JDKs. The above code is therefore converted to the following by the Java compiler:
+
+```java
+List a = new ArrayList();
+List b = new ArrayList();
+return a.getClass() == b.getClass();  // returns true (understandably)
+```
+And thus, in the compiled code, a and b are both simply untyped ArrayList objects, and the fact that one was an ```ArrayList<String>``` and the other was an ```ArrayList<Integer>``` is lost. Although in practice type erasure-related issues rarely cause problems for developers, it is an important issue to be aware of and can in certain cases lead to really ```gnarly``` bugs.
 
 ###Referrences
 
