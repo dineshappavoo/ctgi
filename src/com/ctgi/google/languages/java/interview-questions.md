@@ -155,9 +155,96 @@ public void sillyMethod() throws DataFormatException, InterruptedException,
 }
 ```
 Accordingly, there has been raging debate for years on whether to use checked or unchecked exceptions when writing libaries, for example. As is true with many such debates, the truth is that there really is no one-size-fits-all, across-the-board correct answer. Checked and unchecked exceptions each have their own advantages and disadvantages, so the decision about which to use largely depends on the situation and context.
- 
+
+####8. Describe Generics and provide examples of generic methods and classes in Java.
+
+Java ```generics``` enable programmers to specify, with a single method or class declaration, functionality that can be applied to multiple different data types.```Generics``` also provide compile-time type safety that allows programmers to catch invalid types at compile time.
+
+Here, for example, is a generic method that uses <E> as the placeholder for a generic type:
+
+```java
+public <E> void printArray( E[] inputArray ) {
+    // Display array elements              
+    for ( E element : inputArray ) {        
+        System.out.printf( "%s ", element );
+    }
+    System.out.println();
+}
+```
+The above method could then be invoked with various types of arrays and would handle them all appropriately; e.g.:
+```java
+// invoke generic printArray method with a Double array
+Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
+printArray(doubleArray);
+
+// invoke generic printArray method with a Character array
+Character[] charArray = { 'H', 'E', 'L', 'L', 'O' };
+printArray(charArray);
+```
+There may be times, though, when you want to restrict the kinds of types that are allowed to be passed to a generic type parameter. For example, a method that operates on numbers might only want to accept instances of Number or its subclasses. This is accomplished in generic using a bounded type parameter, which list the type parameter’s name followed by the extends keyword. For example:
+
+```java
+// determines the largest of three Comparable objects
+public static <T extends Comparable<T>> T maximum(T x, T y, T z) {                      
+  T max = x; // assume x is initially the largest       
+  if ( y.compareTo( max ) > 0 ) {
+     max = y; // y is the largest so far
+  }
+  if ( z.compareTo( max ) > 0 ) {
+     max = z; // z is the largest now                 
+  }
+  return max; // returns the largest object   
+}
+```
+As with generic methods, the type parameter section of a generic class can have one or more type parameters separated by commas. For example:
+
+```java
+public class Cell<T> {
+  private T val;
+
+  public void set(T val) { this.val = val; }
+
+  public T get() { return val; }
+
+  public static void main(String[] args) {
+     Cell<Integer> integerCell = new Box<Integer>();
+     Cell<String> stringCell = new Box<String>();
+    
+     integerCell.add(new Integer(10));
+     stringCell.add(new String("Hello World"));
+
+     System.out.printf("Integer Value :%d\n\n", integerCell.get());
+     System.out.printf("String Value :%s\n", stringCell.get());
+  }
+}
+```
+
+####9. What is multiple inheritance? What are some potential problems with it and why has Java traditionally not supported it? How has this changed with the release of Java 8?
+Multiple inheritance is a feature of some object-oriented computer programming languages in which an object or class can inherit characteristics and features from more than one parent object or parent class. It is distinct from single inheritance, where an object or class may only inherit from one particular object or class.
+
+Until Java 8, Java only supported single inheritance. We’ll discuss Java 8’s quasi-support for multiple inheritance shortly, but first let’s understand what problems can result from multiple inheritance and why it has been so heavily avoided in Java.
+
+The main argument against multiple inheritance is the complexity, and potential ambiguity, that it can introduce. This is most typically exemplified by the commonly cited “diamond problem”, whereby classes B and C inherit from class A, and class D inherits from both classes B and C. Ambiguity arises if there is a method in A that both B and C have overridden. If D does not override it, then which version of the method does it inherit; that of B, or that of C?
+
+Let’s consider a simple example. A university has people who are affiliated with it. Some are students, some are faculty members, some are administrators, and so on. So a simple inheritance scheme might have different types of people in different roles, all of whom inherit from one common “Person” class. The Person class could define an abstract getRole() method which would then be overridden by its subclasses to return the correct role type, i.e.:
+
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance1.png "multiple inheritance classes")
+
+
+But now what happens if we want to model a the role of a Teaching Assistant (TA)? Typically, a TA is both a grad student and a faculty member. This yields the classic diamond problem of multiple inheritance and the resulting ambiguity regarding the TA’s getRole() method:
+
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance2.png "multiple inheritance")
+
+
+(Incidentally, note the diamond shape of the above inheritance diagram, which is why this is referred to as the “diamond problem”.)
+
+Which getRole() implementation should the TA inherit? That of the Faculty Member or that of the Grad Student? The simple answer might be to have the TA class override the getRole() method and return newly-defined role called “TA”. But that answer is also imperfect as it would hide the fact that a TA is, in fact, both a faculty member and a grad student. There are multiple design approaches and patterns for addressing this type of situation without multiple inheritance, which is why some languages (Java being one of them) have made the decision to simply steer clear of multiple inheritance.
+
+Java 8, however, introduces a form of quasi-support for multiple inheritance by allowing default methods to be specified on interfaces (prior to Java 8, only method signatures, not method definitions, were allowed on interfaces). Since Java does allow a single class to implement multiple interfaces (whereas a single class can only extend a single parent class), the allowance in Java 8 for method definitions in an interface introduces the potential for the diamond problem in Java for the first time.
+
+For example, if A, B, and C are interfaces, B and C can each provide a different implementation to an abstract method of A, causing the diamond problem for any class D that implements B and C. Either class D must reimplement the method (the body of which can simply forward the call to one of the super implementations), or the ambiguity will be rejected as a compile error.
 
 ###Referrences
 
-* [gribblelab.org](http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html)
+* [toptal.com](http://www.toptal.com/java/)
 
