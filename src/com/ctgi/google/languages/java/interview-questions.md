@@ -228,12 +228,12 @@ The main argument against multiple inheritance is the complexity, and potential 
 
 Let’s consider a simple example. A university has people who are affiliated with it. Some are students, some are faculty members, some are administrators, and so on. So a simple inheritance scheme might have different types of people in different roles, all of whom inherit from one common “Person” class. The Person class could define an abstract getRole() method which would then be overridden by its subclasses to return the correct role type, i.e.:
 
-![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance1.png "multiple inheritance classes")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance1.png"multiple inheritance classes")
 
 
 But now what happens if we want to model a the role of a Teaching Assistant (TA)? Typically, a TA is both a grad student and a faculty member. This yields the classic diamond problem of multiple inheritance and the resulting ambiguity regarding the TA’s getRole() method:
 
-![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance2.png "multiple inheritance")
+![ctgi](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/images/multiple-inheritance2.png"multiple inheritance")
 
 
 (Incidentally, note the diamond shape of the above inheritance diagram, which is why this is referred to as the “diamond problem”.)
@@ -244,6 +244,62 @@ Java 8, however, introduces a form of quasi-support for multiple inheritance by 
 
 For example, if A, B, and C are interfaces, B and C can each provide a different implementation to an abstract method of A, causing the diamond problem for any class D that implements B and C. Either class D must reimplement the method (the body of which can simply forward the call to one of the super implementations), or the ambiguity will be rejected as a compile error.
 
+####10. How can null be problematic and how can you avoid its pitfalls?
+
+For one thing, ```null``` is often ambiguous. It might be used to indicate success or failure. Or it might be used to indicate absence of a value. Or it might actually be a valid value in some contexts.
+
+And even if one knows the meaning of ```null``` in a particular context, it can still cause trouble if the hapless developer forgets to check for it before de-referencing it, thereby triggering a ```NullPointerException```.
+
+One of the most common and effective techniques for avoiding these issues is to use meaningful, ```non-null``` defaults. In other words, simply avoid using ```null``` to the extent that you can. Avoid setting variables to null and avoid returning ```null``` from methods whenever possible (e.g., return an empty list rather than ```null```).
+
+In addition, as of JDK 8, Java has introduced support for the ```Optional<T>``` class (or if you’re using an earlier version of Java, you can use the ```Optional<T>``` class in the ```Guava``` libraries. Optional<T> represents and wraps absence and presence with a value. While Optional adds a bit more ceremony to your code, by forcing you to unwrap the Optional to obtain the ```non-null``` value, it avoids what might otherwise result in a ```NullPointerException```.
+
+####11. What is “boxing” and what are some of its problems to beware of?
+
+Java’s primitive types are long, int, short, float, double, char, byte and boolean. Often it’s desirable to store primitive values as objects in various data structures that only accept objects such as ArrayList, HashMap, etc. So Java introduced the concept of “boxing” which boxes up primitives into object class equivalents, e.g., Integer for int, Float for float, and Boolean for boolean. Of course, as objects, they incur the overhead of object allocation, memory bloat and method calls, but they do achieve their purpose at some expense.
+
+“Autoboxing” is the automatic conversion by the compiler of primitives to boxed objects and vice versa. This is simply a convenience, e.g.:
+
+```java
+ArrayList<Integer> ints = new ArrayList<Integer>();
+
+// Autoboxing.  Compiler automatically converts "35" into a boxed Integer.
+ints.add(35); 
+
+// So the above is equivalent to:  ints.add(new Integer(35));
+```
+Despite their convenience, though, boxed objects are notorious for introducing gnarly bugs, especially for less experienced Java developers.
+
+For one thing, consider this:
+
+```java
+System.out.println(new Integer(5) == new Integer(5));   // false
+```
+In the above line of code, we are comparing the identity of two Integer objects. Since each new Integer(5) creates a new object, one new Integer(5) will not equal another new Integer(5).
+
+But even more troubling is the following seemingly inexplicable distinction:
+
+```java
+System.out.println(Integer.valueOf(127) == Integer.valueOf(127));   // true
+System.out.println(Integer.valueOf(128) == Integer.valueOf(128));   // false
+```
+Huh? How can one of those be true and the other be false? That doesn’t seem to make any sense. Indeed, the answer is quite subtle.
+
+As explained in an easily overlooked note in the Javadoc for the Integer class, the valueOf() method method caches Integer objects for values in the range -128 to 127, inclusive, and may cache other values outside of this range as well. Therefore, the Integer object returned by one call to Integer.valueOf(127) will match the Integer object returned by another call to Integer.valueOf(127), since it is cached. But outside the range -128 to 127, Integer.valueOf() calls, even for the same value, will not necessarily return the same Integer object (since they are not necessarily cached).
+
+It’s also important to note that computation using boxed objects can take around 6 times longer than using primitives, as can be evidenced by way of the following benchmarking code:
+
+```java
+void sum() {
+	Long sum = 0L; // Swap "Long" for "long" and speed dramatically improves.
+	for (long i = 0; i <= Integer.MAX_VALUE; i++) {
+		sum += i;
+	}
+}
+```
+Executing the above code with sum declared as Long took 9194ms whereas the same code with sum declared as long (i.e., the primitive type) took only 979ms.
+
+You can find the code [here](https://github.com/dineshappavoo/ctgi/blob/master/src/com/ctgi/google/languages/java/codeJavaTest.java)
 
 
 ###Referrences
