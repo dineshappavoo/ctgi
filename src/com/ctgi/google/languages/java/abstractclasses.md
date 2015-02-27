@@ -120,5 +120,5 @@ Java provides and supports the creation of abstract classes and interfaces. Both
 You can find the complete source code [here](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/languages/java/code)
 ###Referrences
 
-* [gribblelab.org](http://gribblelab.org/CBootcamp/7_Memory_Stack_vs_Heap.html)
+* [javacodegeeks.com](http://examples.javacodegeeks.com/java-basics/java-abstract-class-example/)
 

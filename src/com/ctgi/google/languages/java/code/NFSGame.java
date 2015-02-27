@@ -24,5 +24,4 @@ public class NFSGame extends GridVM{
 	public void displaygridID() {
 		System.out.println("Grid Id : "+gridId+"  VM Name : "+vmName);
 	}
-
 }

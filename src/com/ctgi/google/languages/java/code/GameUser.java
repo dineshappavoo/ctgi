@@ -26,5 +26,4 @@ public class GameUser {
 		nfsGame1.displaygridID();
 		
 	}
-
 }

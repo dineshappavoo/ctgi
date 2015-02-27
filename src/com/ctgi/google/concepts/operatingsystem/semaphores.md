@@ -14,6 +14,10 @@ Invented by Dutch computer scientist Edsger Dijkstra in 1962 or 1963
 " target="_blank"><img src="http://img.youtube.com/vi/KZU4ANBoLTY/0.jpg" 
 alt="http://img.youtube.com/vi/KZU4ANBoLTY/15.jpg" width="540" height="380" border="10" /></a>
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=cIkzOOcdh2Y
+" target="_blank"><img src="http://img.youtube.com/vi/cIkzOOcdh2Y/0.jpg" 
+alt="http://img.youtube.com/vi/cIkzOOcdh2Y/15.jpg" width="540" height="380" border="10" /></a>
+
 ###Protocols
 When used for a pool of resources, a semaphore tracks only how many resources are free; it does not keep track of which of the resources are free. Some other mechanism (possibly involving more semaphores) may be required to select a particular free resource.
 
