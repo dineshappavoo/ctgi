@@ -4,6 +4,11 @@ TCP and UDP are two transport layer protocols, which are extensively used in int
 
 By the way, use of TCP and UDP is not limited to one area, its at the heart of internet. The protocol which is core of internet, HTTP is based on TCP. One more reason, why Java developer should understand these two protocol in detail is that Java is extensively used to write multi-threaded, concurrent and scalable servers. Java also provides rich Socket programming API for both TCP and UDP based communication. In this article, we will learn key differences between TCP and UDP protocol, which is useful to every Java programmers. To start with, TCP stands for Transmission Control Protocol and UDP stands for User Datagram Protocol, and both are used extensively to build Internet applications.
 
+####Introduction Video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Vdc8TCESIg8
+" target="_blank"><img src="http://img.youtube.com/vi/Vdc8TCESIg8/0.jpg" 
+alt="http://img.youtube.com/vi/Vdc8TCESIg8/15.jpg" width="540" height="380" border="10" /></a>
+
 ####1) Connection oriented vs Connection less
 First and foremost difference between them is TCP is a connection oriented protocol, and UDP is connection less protocol. This means  a connection is established between client and server, before they can send data. Connection establishment process is also known as TCP hand shaking where control messages are interchanged between client and server. Attached image describe the process of TCP handshake, for example which control messages are exchanged between client and server. 
 
@@ -47,8 +52,29 @@ One of the best example of TCP based higher end protocol is HTTP and HTTPS, whic
 
 That's all about difference between TCP and UDP protocol. Always remember to mention that TCP is connection oriented, reliable, slow, provides guaranteed delivery and preservers order of messages, while UDP is connection less, unreliable, no ordering guarantee, but fast protocol. TCP overhead is also much higher than UDP, as it transmits more meta data per packet than UDP. It's worth mentioning that header size of Transmission control protocol is 20 bytes, compared to 8 bytes header of User Datagram protocol. Use TCP, if you can't afford to lose any message, while UDP is better for high speed data transmission, where loss of single packet is acceptable e.g. video streaming or online multi player games. While working in TCP/UDP based application on Linux, it's also good to remember basic networking commands e.g. telnet and netstat, they help tremendously to debug or troubleshoot any connection issue.
 
+###Difference Chart
+|Property|TCP|UDP|
+|--------|---|---|
+|Acronym for	|	Transmission Control Protocol	|User Datagram Protocol or Universal Datagram Protocol|
+Connection|	TCP is a connection-oriented protocol.	|UDP is a connectionless protocol.|
+|Function	|As a message makes its way across the internet from one computer to another. This is connection based.	|	UDP is also a protocol used in message transport or transfer. This is not connection based which means that one program can send a load of packets to another and that would be the end of the relationship.|
+|Usage	|TCP is suited for applications that require high reliability, and transmission time is relatively less critical.	|	UDP is suitable for applications that need fast, efficient transmission, such as games. UDP's stateless nature is also useful for servers that answer small queries from huge numbers of clients.|
+|Use by other protocols	|	HTTP, HTTPs, FTP, SMTP, Telnet	|	DNS, DHCP, TFTP, SNMP, RIP, VOIP.|
+|Ordering of data packets	|	TCP rearranges data packets in the order specified.	|	UDP has no inherent order as all packets are independent of each other. If ordering is required, it has to be managed by the application layer.|
+|Speed of transfer	|	The speed for TCP is slower than UDP.	|	UDP is faster because there is no error-checking for packets.|
+|Reliability	|	There is absolute guarantee that the data transferred remains intact and arrives in the same order in which it was sent.	|	There is no guarantee that the messages or packets sent would reach at all.|
+|Header Size	|	TCP header size is 20 bytes	|	UDP Header size is 8 bytes.|
+|Common Header Fields	|Source port, Destination port, Check Sum	|	Source port, Destination port, Check Sum|
+|Streaming of data	|	Data is read as a byte stream, no distinguishing indications are transmitted to signal message (segment) boundaries.	|	Packets are sent individually and are checked for integrity only if they arrive. 	Packets have definite boundaries which are honored upon receipt, meaning a read operation at the receiver socket will yield an entire message as it was originally sent.|
+|Weight	|TCP is heavy-weight. TCP requires three packets to set up a socket connection, before any user data can be sent. TCP handles reliability and congestion control.	|	UDP is lightweight. There is no ordering of messages, no tracking connections, etc. It is a small transport layer designed on top of IP.|
+|Data Flow Control	|TCP does Flow Control. TCP requires three packets to set up a socket connection, before any user data can be sent. TCP handles reliability and congestion control.	|UDP does not have an option for flow control|
+|Error Checking	|	TCP does error checking	|	UDP does error checking, but no recovery options.|
+|Fields	|1. Sequence Number, 2. AcK number, 3. Data offset, 4. Reserved, 5. Control bit, 6. Window, 7. Urgent Pointer 8. Options, 9. Padding, 10. Check Sum, 11. Source port, 12. Destination port	|	1. Length, 2. Source port, 3. Destination port, 4. Check Sum|
+|Acknowledgement	|	Acknowledgement segments	|	No Acknowledgment|
+|Handshake	|	SYN, SYN-ACK, ACK	|	No handshake (connectionless protocol)|
+|Checksum	|	checksum	|	to detect errors|
 ###Referrences
 
-* [wikipedia.com](http://en.wikipedia.org/wiki/Semaphore_%28programming%29)
+* [javarevisited.blogspot.com](http://javarevisited.blogspot.com/2014/07/9-difference-between-tcp-and-udp-protocol.html)
 * [chibios.org](http://www.chibios.org/dokuwiki/doku.php?id=chibios:articles:semaphores_mutexes)
 
