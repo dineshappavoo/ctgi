@@ -100,9 +100,14 @@ The use of the XBar to connect devices in the same chip, and the HyperTransport 
 This is such a good idea that Intel will be copying it, but probably not until 2008.
 
 
+###Definition from Intel
+A Hyper-Threading Technology (HT Technology) enabled system appears to have more processors than it actually has. With this technology, one physical processor with a single-core is seen as two logical processors. The term logical is used here purposely as these two logical processors are not the same as a dual physical processor. Windows* will report to have two CPUs instead of one. This can be a big problem for licensing software especially when implementing per-processor models, since a two-logical processor system doesn’t perform equally to the real dual-physical processor system. Now, with the introduction of multi-core, the licensing problem is getting worse.
+
+A core is different from a logical processor. The core has its own set of execution units. Also, a core can have more than one logical processor associated with it. In a multi-core HT Technology enabled system, one physical processor can have a minimum of two cores (dual-core) and four logical processors. This is good for multi-threading applications. Cores have their own set of execution units. Therefore, unlike running on logical processors, two threads, each running on a separate core of the same physical processor, do not compete for execution units. Additionally, in multi-core systems you can retrieve the number of threads that can be served by any cache level. This information is generally important for cache blocking applications. For load balancing, it is important that you know which logical processor is associated with which physical processor.
+
 ###Referrences
 
-* [nvidia.com](http://www.nvidia.com/object/what-is-gpu-computing.html)
-* [wikipedia.org](http://en.wikipedia.org/wiki/Graphics_processing_unit)
+* [nvidia.com](http://www.howtogeek.com/194756/cpu-basics-multiple-cpus-cores-and-hyper-threading-explained/)
+* [yale.edu](http://www.yale.edu/pclt/PCHW/Hyperthreading.htm)
 * [allegroviva.com](http://allegroviva.com/gpu-computing/difference-between-gpu-and-cpu/)
 
