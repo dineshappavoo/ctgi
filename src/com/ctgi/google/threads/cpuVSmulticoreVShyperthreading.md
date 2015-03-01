@@ -107,7 +107,7 @@ A core is different from a logical processor. The core has its own set of execut
 
 ###Referrences
 
-* [nvidia.com](http://www.howtogeek.com/194756/cpu-basics-multiple-cpus-cores-and-hyper-threading-explained/)
+* [howtogeek.com](http://www.howtogeek.com/194756/cpu-basics-multiple-cpus-cores-and-hyper-threading-explained/)
 * [yale.edu](http://www.yale.edu/pclt/PCHW/Hyperthreading.htm)
-* [allegroviva.com](http://allegroviva.com/gpu-computing/difference-between-gpu-and-cpu/)
+* [intel.com](https://software.intel.com/en-us/articles/hyper-threading-technology-multi-core-and-mobile-intel-pentium-processor-m-toolbox)
 
