@@ -15,7 +15,7 @@ If your computer doesnÕt already know the answer, it needs to perform a DNS quer
 
 DNS client will make a query to the root server. The server gives another root server information which has .com domain
 
-			```DNS CLIENT ```  -->  ```ROOT SERVER``` 
+```DNS CLIENT ```  -->  ```ROOT SERVER``` 
 
 The query look like the following one,
 
@@ -25,7 +25,7 @@ The query look like the following one,
 	```IN``` - The DNS class (Internet)
 	```A``` - The record type (address) -  We are looking for the address of the top level domain server
 	
-			 ```DNS CLIENT```  <--  ```ROOT SERVER```
+```DNS CLIENT```  <--  ```ROOT SERVER```
 	**Authority Section:**
 		com.	172800	IN	NS	m.gltd-servers.com
 		com.	172800	IN	NS	l.gltd-servers.com
