@@ -47,7 +47,43 @@ But with domain name alone we cant reach this DNS servers because we need IP add
 		m.gltd-servers.com	172800	IN	A	192.55.83.30		
 		m.gltd-servers.com	172800	IN	A	192.55.83.30		
 		m.gltd-servers.com	172800	IN	A	192.55.83.30
-	
+		
+		
+After getting TLD IP address DNS client now can contact the TLD server for .com domain which has more specific answers for example.com domain
+
+```TLD Server``` <--  ```DNS Client```
+
+**Authority Section:**
+
+		com.	172800	IN	NS	a.iana-servers.com		
+		com.	172800	IN	NS	b.gltd-servers.com	
+		
+**Additional Section:**
+
+		a.iana-servers.com	172800	IN	A	192.55.83.30		
+		a.iana-servers.com	172800	IN	AAAA	2001:500:8c::53		
+		b.iana-servers.com	172800	IN	A	192.55.83.30		
+		b.iana-servers.com	172800	IN	AAAA	2001:500:8c::54
+		
+		
+In the above additional section there are two entries for each name server domain names. One for IPv4 and one for IPv6. This address server is the one which has the ip address of example.com
+
+After getting this information, DNS client will now try to contact the server which has the Ip address for example.com. And it will get the IP address in the response. And the table for query will look like the following
+
+```DNS CLIENT```	<--	```NAME SERVER```
+
+**Authority Section:**
+
+		example.com	172800	IN	A	91.184.216.119
+						
+**Additional Section:**
+
+		example.com	172800	IN	NS	a.iana-servers.com		
+		example.com	172800	IN	NS  b.iana-servers.com	
+
+Here in the additional section, the name server which has the domain ip info is given. But this is no longer required.
+
+ 
 
 ####Ask the recursive DNS servers
 If the information is not stored locally, your computer queries (contacts) your ISPÕs recursive DNS servers. These specialized computers perform the legwork of a DNS query on your behalf. Recursive servers have their own caches, so the process usually ends here and the information is returned to the user.
