@@ -29,32 +29,23 @@ for example .com
 
 **Authority Section:**
 
-		com.	172800	IN	NS	m.gltd-servers.com
-		
-		com.	172800	IN	NS	l.gltd-servers.com
-		
-		com.	172800	IN	NS	k.gltd-servers.com
-		
+		com.	172800	IN	NS	m.gltd-servers.com		
+		com.	172800	IN	NS	l.gltd-servers.com		
+		com.	172800	IN	NS	k.gltd-servers.com		
 		com.	172800	IN	NS	j.gltd-servers.com
 	
 ```172800``` - Time to live (How long the information is valid)
-
 ```IN``` - DNS class(Internet)
-
 ```NS``` - Name server(Authoritative server for .com domain)
-
 ```m.gltd-servers.com``` - Domain Name for each name servers
 	
 But with domain name alone we cant reach this DNS servers because we need IP address. So the IP address info is available in the additional section.
 	
 **Additional Section:**
 
-		m.gltd-servers.com	172800	IN	A	192.55.83.30
-		
-		m.gltd-servers.com	172800	IN	A	192.55.83.30
-		
-		m.gltd-servers.com	172800	IN	A	192.55.83.30
-		
+		m.gltd-servers.com	172800	IN	A	192.55.83.30		
+		m.gltd-servers.com	172800	IN	A	192.55.83.30		
+		m.gltd-servers.com	172800	IN	A	192.55.83.30		
 		m.gltd-servers.com	172800	IN	A	192.55.83.30
 	
 
