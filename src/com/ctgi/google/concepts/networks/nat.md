@@ -1,5 +1,6 @@
-DNS
-===
+NAT - Network Address Translation
+=================================
+
 The Domain Name System (DNS) is a central part of the Internet, providing a way to match names (a website you’re seeking) to numbers (the address for the website). Anything connected to the Internet - laptops, tablets, mobile phones, websites - has an Internet Protocol (IP) address made up of numbers. Your favorite website might have an IP address like 64.202.189.170, but this is obviously not easy to remember. However a domain name such as bestdomainnameever.com is something people can recognize and remember. DNS syncs up domain names with IP addresses enabling humans to use memorable domain names while computers on the Internet can use IP addresses.
 
 Let’s explore what keeps billions of Internet users and 284 million domain names* connecting—and how Verisign helps to make it happen.
