@@ -19,27 +19,27 @@ DNS client will make a query to the root server. The server gives another root s
 
 The query look like the following one,
 
-	for example .com
-	```example.com 	IN 	A```
-	```example.com``` - the domain to look up
-	```IN``` - The DNS class (Internet)
-	```A``` - The record type (address) -  We are looking for the address of the top level domain server
+for example .com
+```example.com 	IN 	A```
+```example.com``` - the domain to look up
+```IN``` - The DNS class (Internet)
+```A``` - The record type (address) -  We are looking for the address of the top level domain server
 	
 ```DNS CLIENT```  <--  ```ROOT SERVER```
-	**Authority Section:**
+**Authority Section:**
 		com.	172800	IN	NS	m.gltd-servers.com
 		com.	172800	IN	NS	l.gltd-servers.com
 		com.	172800	IN	NS	k.gltd-servers.com
 		com.	172800	IN	NS	j.gltd-servers.com
 	
-	```172800``` - Time to live (How long the information is valid)
-	```IN``` - DNS class(Internet)
-	```NS``` - Name server(Authoritative server for .com domain)
-	```m.gltd-servers.com``` - Domain Name for each name servers
+```172800``` - Time to live (How long the information is valid)
+```IN``` - DNS class(Internet)
+```NS``` - Name server(Authoritative server for .com domain)
+```m.gltd-servers.com``` - Domain Name for each name servers
 	
-	But with domain name alone we cant reach this DNS servers because we need IP address. So the IP address info is available in the additional section.
+But with domain name alone we cant reach this DNS servers because we need IP address. So the IP address info is available in the additional section.
 	
-	**Additional Section:**
+**Additional Section:**
 		m.gltd-servers.com	172800	IN	A	192.55.83.30
 		m.gltd-servers.com	172800	IN	A	192.55.83.30
 		m.gltd-servers.com	172800	IN	A	192.55.83.30
