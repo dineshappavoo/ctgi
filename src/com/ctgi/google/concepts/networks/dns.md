@@ -13,6 +13,39 @@ alt="http://img.youtube.com/vi/GlZC4Jwf3xQ/15.jpg" width="540" height="380" bord
 The process begins when you ask your computer to resolve a hostname, such as visiting http://dyn.com. The first place your computer looks is its local DNS cache, which stores information that your computer has recently retrieved.
 If your computer doesnÕt already know the answer, it needs to perform a DNS query to find out.
 
+DNS client will make a query to the root server. The server gives another root server information which has .com domain
+
+			```DNS CLIENT ```  -->  ```ROOT SERVER``` 
+
+The query look like the following one,
+
+	for example .com
+	```example.com 	IN 	A```
+	```example.com``` - the domain to look up
+	```IN``` - The DNS class (Internet)
+	```A``` - The record type (address) -  We are looking for the address of the top level domain server
+	
+			 ```DNS CLIENT```  <--  ```ROOT SERVER```
+	**Authority Section:**
+		com.	172800	IN	NS	m.gltd-servers.com
+		com.	172800	IN	NS	l.gltd-servers.com
+		com.	172800	IN	NS	k.gltd-servers.com
+		com.	172800	IN	NS	j.gltd-servers.com
+	
+	```172800``` - Time to live (How long the information is valid)
+	```IN``` - DNS class(Internet)
+	```NS``` - Name server(Authoritative server for .com domain)
+	```m.gltd-servers.com``` - Domain Name for each name servers
+	
+	But with domain name alone we cant reach this DNS servers because we need IP address. So the IP address info is available in the additional section.
+	
+	**Additional Section:**
+		m.gltd-servers.com	172800	IN	A	192.55.83.30
+		m.gltd-servers.com	172800	IN	A	192.55.83.30
+		m.gltd-servers.com	172800	IN	A	192.55.83.30
+		m.gltd-servers.com	172800	IN	A	192.55.83.30
+	
+
 ####Ask the recursive DNS servers
 If the information is not stored locally, your computer queries (contacts) your ISPÕs recursive DNS servers. These specialized computers perform the legwork of a DNS query on your behalf. Recursive servers have their own caches, so the process usually ends here and the information is returned to the user.
 
@@ -36,6 +69,6 @@ This entire process, from start to finish, takes only milliseconds to complete.
 ####
 ###Referrences
 
-* [javarevisited.blogspot.com](http://javarevisited.blogspot.com/2014/07/9-difference-between-tcp-and-udp-protocol.html)
-* [chibios.org](http://www.chibios.org/dokuwiki/doku.php?id=chibios:articles:semaphores_mutexes)
+* [dyn.com](http://dyn.com/blog/dns-why-its-important-how-it-works/)
+* [microsoft.com](https://technet.microsoft.com/en-us/library/cc772774(v=ws.10).aspx)
 
