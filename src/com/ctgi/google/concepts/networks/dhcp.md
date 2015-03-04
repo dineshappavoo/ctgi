@@ -28,6 +28,6 @@ Protocol Used - UDP
 
 ###Referrences
 
-* [javarevisited.blogspot.com](http://javarevisited.blogspot.com/2014/07/9-difference-between-tcp-and-udp-protocol.html)
-* [chibios.org](http://www.chibios.org/dokuwiki/doku.php?id=chibios:articles:semaphores_mutexes)
+* [iu.edu](https://kb.iu.edu/d/adov)
+* [whatismyipaddress.com](http://whatismyipaddress.com/dhcp)
 
