@@ -29,21 +29,22 @@ Because the happened-before relation is both irreflexive and antisymmetric, it f
 
 ####Concurrent events
 If events are not related by happened before relation then they are concurrent. Concurrency property does not hold transitivity.
-
+```
 P1 -------a------------c----------
 P2 ------------b------------------
-
+```
 Events a , b, c from processes P1 and P2. a and b are concurrent ( a||b ) because there is no happened before relation between these two. An the same way b || c. But a is not concurrent with c because a happened before c.
 
 ####Abstract Clocks
 Abstract clocks are used to order the events. 
 
 Types,
+```
 	1. Logical clock
 	2. Vector clock
 	3. Matrix clock
 	4. Direct Dependency Clock
-
+```
 ###Referrences
 
 * [wikipedia.com](http://en.wikipedia.org/wiki/Happened-before)
