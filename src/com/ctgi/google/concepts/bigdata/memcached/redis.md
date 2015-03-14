@@ -39,7 +39,34 @@ The type of a value determines what operations (called commands) are available f
 Full set of commands can be found [here](http://redis.io/commands)
 
 ####Popular Commands
-MGET : Returns the values of all specified keys. For every key that does not hold a string value or does not exist, the special value nil is returned. Because of this, the operation never fails.
+SET:
+```
+SET key value [EX seconds] [PX milliseconds] [NX|XX]
+```
+Set key to hold the string value. If key already holds a value, it is overwritten, regardless of its type. Any previous time to live associated with the key is discarded on successful SET operation.
+Options
+
+Starting with Redis 2.6.12 SET supports a set of options that modify its behavior:
+* EX seconds -- Set the specified expire time, in seconds.
+* PX milliseconds -- Set the specified expire time, in milliseconds.
+* NX -- Only set the key if it does not already exist.
+* XX -- Only set the key if it already exist.
+
+**Return value**
+Simple string reply: OK if SET was executed correctly. Null reply: a Null Bulk Reply is returned if the SET operation was not performed because the user specified the NX or XX option but the condition was not met.
+
+**Examples:**
+
+```shell
+redis> SET mykey "Hello"
+OK
+redis> GET mykey
+"Hello"
+redis> 
+```
+
+MGET :
+Returns the values of all specified keys. For every key that does not hold a string value or does not exist, the special value nil is returned. Because of this, the operation never fails.
 
 Example :
 ```shell
@@ -52,6 +79,17 @@ redis> MGET key1 key2 nonexisting
 2) "World"
 3) (nil)
 redis> 
+```
+
+In golang client through redigo api
+```go
+// get many keys in a single MGET, ask redigo for []string result
+    strs, err := redis.Strings(conn.Do("MGET", "k1", "k2", "k3"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    //prints [a b ]
+    fmt.Println(strs)
 ```
 
 ###Referrences
