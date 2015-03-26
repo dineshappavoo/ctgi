@@ -39,7 +39,20 @@ The type of a value determines what operations (called commands) are available f
 Full set of commands can be found [here](http://redis.io/commands)
 
 ####Popular Commands
-SET:
+
+To show the examples through go client we are creating connection here,
+```go
+func main() {
+    conn, err := redis.Dial("tcp", ":6379")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer conn.Close()
+```
+All the go code should be under this function main
+
+**Commands**
+**SET:**
 ```
 SET key value [EX seconds] [PX milliseconds] [NX|XX]
 ```
@@ -64,7 +77,16 @@ redis> GET mykey
 "Hello"
 redis> 
 ```
-
+GO Example:
+```go
+// add some keys
+    if _, err = conn.Do("SET", "k1", "a"); err != nil {
+        log.Fatal(err)
+    }
+    if _, err = conn.Do("SET", "k2", "b"); err != nil {
+        log.Fatal(err)
+    }
+```
 MGET :
 Returns the values of all specified keys. For every key that does not hold a string value or does not exist, the special value nil is returned. Because of this, the operation never fails.
 
@@ -92,8 +114,27 @@ In golang client through redigo api
     fmt.Println(strs)
 ```
 
+**DEL key [key ...]:**
+Time complexity: O(N) where N is the number of keys that will be removed. When a key to remove holds a value other than a string, the individual complexity for this key is O(M) where M is the number of elements in the list, set, sorted set or hash. Removing a single key that holds a string value is O(1).
+
+Removes the specified keys. A key is ignored if it does not exist.
+
+**Return value**
+Integer reply: The number of keys that were removed.
+
+Examples
+redis> SET key1 "Hello"
+OK
+redis> SET key2 "World"
+OK
+redis> DEL key1 key2 key3
+(integer) 2
+redis> 
+
 ###Referrences
 
-* [cs.stanford.edu](http://cs.stanford.edu/people/eroberts/courses/soco/projects/risc/whatis/index.html)
+* [redis.io](http://redis.io/commands)
+* [coderwall.com](https://coderwall.com/p/unklzq/redis-go-building-a-simple-swear-word-filter)
+* []()
 * [engineersgarage.com](http://www.engineersgarage.com/articles/risc-and-cisc-architecture?page=5)
 
