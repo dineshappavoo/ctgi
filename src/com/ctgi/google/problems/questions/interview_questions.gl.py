@@ -11,4 +11,14 @@ QUESTIONS:
       / /\
      d e f
 [Amazon] [TreeChildrenFromLevel]
-6.
+6.Definition: 1 is a Pure number; X is a Pure number if the square of the sum of digits of X is a Pure number.
+    
+    Example:
+        64 => (6+4)^2 = 100;
+            100 => (1+0+0)^2 = 1
+        Therefore, both 64 and 100 are Pure.
+        
+        Note that if you reach a single digit number that's NOT 1, you keep going: 7 => 7^2 = 49, etc.
+        
+        Returns true iff x is a Pure number. x is guaranteed to be a positive integer. [Pure Storage] [	PureNumber ]
+7.
