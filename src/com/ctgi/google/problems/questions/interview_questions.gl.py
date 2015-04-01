@@ -21,4 +21,6 @@ QUESTIONS:
         Note that if you reach a single digit number that's NOT 1, you keep going: 7 => 7^2 = 49, etc.
         
         Returns true iff x is a Pure number. x is guaranteed to be a positive integer. [Pure Storage] [	PureNumber ]
-7.
+7.Choose a random string based on the probablity of the weight associated with that. [Uber] [RandomStringWithHighProbabilityAssociated]
+8.Given a list of strings group the strings based on their anagram property. For example [ "god", "baba", "man", "dog" "abba"] should be ["god", "dog","man", "baba", "abba"]
+9.
