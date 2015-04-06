@@ -22,5 +22,5 @@ QUESTIONS:
         
         Returns true iff x is a Pure number. x is guaranteed to be a positive integer. [Pure Storage] [	PureNumber ]
 7.Choose a random string based on the probablity of the weight associated with that. [Uber] [RandomStringWithHighProbabilityAssociated]
-8.Given a list of strings group the strings based on their anagram property. For example [ "god", "baba", "man", "dog" "abba"] should be ["god", "dog","man", "baba", "abba"]
+8.Given a list of strings group the strings based on their anagram property. For example [ "god", "baba", "man", "dog" "abba"] should be ["god", "dog","man", "baba", "abba"] [Yelp]
 9.
