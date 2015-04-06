@@ -22,7 +22,7 @@ Programming: [Glassdoor - Software Engineer/New Grad upto page -13]
 ============
 1.Given a corpus of a review, split it in terms sentences (Make sure to take care of ellipses, question marks and exclamation marks).
 2.Javascript question, HTTP protocols : Their significance and difference.
-3.Implement a Most Recently Used Cache.
+3.Implement a Most Recently Used Cache. [com.ctgi.google.implementation.cache.MRUCache]
 4.Given an iterator interface for 1 word, extend to implement an iterator function for two words.
 5.Implement a trie. (Write the API and code for inserting into a trie).
 6.Anagrams, given an array of Strings and return all groups of strings that are anagrams.Is there any other way that don't need to sort each string.  [GroupStringsByAnagrams]
@@ -33,7 +33,7 @@ Programming: [Glassdoor - Software Engineer/New Grad upto page -13]
 11.Design database tables of Yelp.
 12.What happens after sending an HTTP get request to yelp.com.
 13.find target value from a 2d array in which each row and column are sorted.
-14.Implement a cache (had growing requirements, such as a limit on how many things could be stored in it, and should return the most recently placed record).
+14.Implement a cache (had growing requirements, such as a limit on how many things could be stored in it, and should return the most recently placed record). [com.ctgi.google.implementation.cache.MRUCache]
 15.Reconstruct a binary tree given two sequences of node traversals, one from inorder and one from postorder traversal. 
 16.We have a fairly large log file, about 5GB. Each line of the log file contains an url which a user has visited on our site. We want to figure out what's the most popular 100 urls visited by our users.
 17.How would you find the top 10 queries Yelp receives? 
@@ -66,9 +66,9 @@ Programming: [Glassdoor - Software Engineer/New Grad upto page -13]
 28.Subtract two strings
 29.Given a list of threads with a start time and finish time, determine all the threads with overlapping times.[DUPLICATE]1.given an array of intervals, return max number of non-overlapping intervals
 30.Given a string, print true or false if you can create a palindrome with it. 
-31.Create a cache for data on a webpage to avoid calling the server whenever possible.
+31.Create a cache for data on a webpage to avoid calling the server whenever possible. [com.ctgi.google.implementation.cache.LRUCache]
 32.How would you make a Spam detector for Yelp given all the data.
-33.How to implement a cache for yelp website.
+33.How to implement a cache for yelp website. [com.ctgi.google.implementation.cache.LRUCache]
 34.Figure out why the response for an HTTP request is slow
 35.Find a number, which is a very easy question by using Binary Search 
 36.load balancing of servers and asked to implement various functions for it.
