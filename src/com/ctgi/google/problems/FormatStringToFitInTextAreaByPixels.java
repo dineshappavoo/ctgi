@@ -54,6 +54,7 @@ public class FormatStringToFitInTextAreaByPixels {
 				{
 					currentStringPart = currentStringPart + "\n";
 					formattedStringBuffer.append(currentStringPart);
+					break;
 					//return currentStringPart;
 				}else if(currentPixelSize < pixels)
 				{
@@ -62,6 +63,7 @@ public class FormatStringToFitInTextAreaByPixels {
 				{
 					lastValidStringPart = lastValidStringPart + "\n";
 					formattedStringBuffer.append(lastValidStringPart);
+					break;
 					//return lastValidStringPart;
 				}      
 			}

@@ -25,7 +25,7 @@ Programming: [Glassdoor - Software Engineer/New Grad upto page -13]
 3.Implement a Most Recently Used Cache. [com.ctgi.google.implementation.cache.MRUCache]
 4.Given an iterator interface for 1 word, extend to implement an iterator function for two words.
 5.Implement a trie. (Write the API and code for inserting into a trie).
-6.Anagrams, given an array of Strings and return all groups of strings that are anagrams.Is there any other way that don't need to sort each string.  [GroupStringsByAnagrams]
+6.Anagrams, given an array of Strings and return all groups of strings that are anagrams.Is there any other way that don't need to sort each string.  [com.ctgi.google.problems.GroupStringsByAnagrams]
 7.How does Java GC work, how to implement a GC. 
 8.Using random numbers to determine value of PI(3.1518926..), and how to let it work in multi-computer environment.
 9."tom" has "salad soup sandwich", "rose" has "drink soup". Input "salad sandwich" return "tom rose".
@@ -113,7 +113,18 @@ Programming: [Glassdoor - Software Engineer/New Grad upto page -13]
 	Example output:
 		"1 ... 4 5 (6) 7 8 ... 30" for a site with 30 pages where the user is on page 6
 		"1 (2) 3 4 ... 30" for a site with 30 pages where the user is on page 2
-74.
+74. If I type a line of text that is too wide to fit the text area it will automatically wrap to the next line. This is what you will be implementing in this coding problem.
+	Write function: input 1) string 2) width in pixels of text area -> output 1) string with newlines added
+	Provided function: input 1) string -> output 1) width in pixels of string
+	f(u+v) != f(u) + f(v)
+	f(u+v) >= f(u)
+	"Hello world" != "Hello" + " " + "world"
+
+	"Hello world again", 500px
+	"Hello world again" -> 750px
+	"Hello" -> 450px  [com.ctgi.google.problems.FormatStringToFitInTextAreaByPixels]
+	
+	
 Behavioral
 ==========
 1. Why yelp? 
