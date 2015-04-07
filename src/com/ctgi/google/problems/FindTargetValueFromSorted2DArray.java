@@ -17,13 +17,32 @@ public class FindTargetValueFromSorted2DArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	}
-	
-	public int findValueFromSortedArray(int[][] arr)
-	{
-		int num = 0;
+		int[][] arr = {{1, 3, 5},{6,8,9},{10, 13, 15}};
+		new FindTargetValueFromSorted2DArray().findValueFromSortedArray(arr, 8);
 		
-		return num;
+	}
+
+	public void findValueFromSortedArray(int[][] arr, int val)
+	{
+		int rowLength = arr.length;
+		int colLength = arr[0].length;
+		int j=colLength-1, i=0;
+		while(i<rowLength  && j<colLength)
+		{
+			if(val<arr[i][j])
+			{
+				j--;
+			}else if(arr[i][j] == val)
+			{
+				System.out.println("Index "+i+" , "+j); 
+				break;
+			}
+			else
+			{
+				i++;
+			}
+
+		}
 	}
 
 }
