@@ -453,7 +453,9 @@ Create a copy of the structure (the data field in each node is not unique for di
 
 
 
-
+Design
+======
+1.How would you architect a world-wide video distribution system? Or Facebook chat?
 
 
 
