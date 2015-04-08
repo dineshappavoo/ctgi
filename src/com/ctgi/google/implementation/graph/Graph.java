@@ -1,4 +1,4 @@
-package com.ctgi.google.implementation.treesandgraph;
+package com.ctgi.google.implementation.graph;
 
 import java.util.ArrayList;
 

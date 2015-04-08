@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.implementation.treesandgraph;
+package com.ctgi.google.implementation.tree;
 
 /**
  * @author Dany
