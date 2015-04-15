@@ -14,13 +14,5 @@ RECURSIVE CALLS:
 3.
 
 
-
-TEST
-1.
-
-DESIGN:
-1. Design an interface
-2. write a class to define a deck of cards, and write shuffle function for the cards [2]
-
 References:
 1. http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
