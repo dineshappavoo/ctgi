@@ -23,6 +23,9 @@ Programming language related topics like java-[abstract classes, jvm, memory etc
 ###Where can I find common mistakes we do in interviews in programming challenges?
 Common mistakes like Division by zero, array out of bound exceptions, recursive base cases are available in [com.ctgi.google.mistakes](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/mistakes)
 
+###How do I learn about multi-threading?
+Multi threading concepts like multicore, hyperthreading etc. are available in [com.ctgi.google.threads](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/threads). And problems related to threading like DiningPhilosophers, ProducerConsumer are available in [com.ctgi.google.threads.java](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/threads/java). And the c implementations are in [com.ctgi.google.threads.c](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/threads/c)
+
 ##Install
 
 This library has the solutions in Java.
