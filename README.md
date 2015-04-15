@@ -28,4 +28,4 @@ ctgi is licensed under MIT License. See LICENSE for full license text.
   
 ###Project Contributor
 
-* Dinesh Appavoo ([@DineshAppavoo](http://utdallas.com/~dxa132330))
+* Dinesh Appavoo ([@DineshAppavoo](http://utdallas.edu/~dxa132330))
