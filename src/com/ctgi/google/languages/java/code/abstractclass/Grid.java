@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ctgi.google.languages.java.code;
+package com.ctgi.google.languages.java.code.abstractclass;
 
 /**
  * @author Dany
