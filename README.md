@@ -17,6 +17,9 @@ Materials for computer science concepts like operating system[Semaphores, mutual
 ###Where can I refer datastructure implementations?
 Datastructure implemantations like Hashtable, Linkedlist[Singly, Doubly, Circular], Graph, Tree,Cache[LRU, MRU] etc. in [com.ctgi.google.implementation](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/implementation).
 
+###Where do I learn about programming language related functionalities/issues?
+Programming language related topics like java-[abstract classes, jvm, memory etc.], c-[compilation, macros, malloc, pointers, segmentation fault, stack/heap memory etc.] is available in [com.ctgi.google.languages](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/languages)
+
 
 
 ##Install
