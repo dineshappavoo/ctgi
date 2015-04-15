@@ -34,6 +34,8 @@ latency_ms	70
 bandwidth	20 
 .... //etc. 
 ------- 
+Q: Write a method to calculate the average latency and total bandwidth.
+
 29.Write a function to find all the combinations of three numbers that sum to zero 
 Sample input: 
 [2, 3, 1, -2, -1, 0, 2, -3, 0] 
@@ -64,22 +66,8 @@ A + B + C = D
 
 
 
-
-
-
-
-
-Q: Write a method to calculate the average latency and total bandwidth.
-
-
-Interview Questions 
-
-
 Design
 ======
-
-
-
 
 
 
