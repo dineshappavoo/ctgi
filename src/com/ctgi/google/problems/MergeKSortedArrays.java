@@ -21,7 +21,7 @@ import java.util.PriorityQueue;
  *6. return the merged_array
  *
  */
-public class MergeKSortedLists {
+public class MergeKSortedArrays {
 
 	/**
 	 * @param args
@@ -49,7 +49,7 @@ public class MergeKSortedLists {
 		list3.add(12);
 		sortedLists.add(list3);
 
-		int[] res = new MergeKSortedLists().mergeKSortedList(sortedLists);
+		int[] res = new MergeKSortedArrays().mergeKSortedList(sortedLists);
 
 		for(int n : res)
 		{
