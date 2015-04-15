@@ -15,7 +15,7 @@ Answers for the questions are available in [com.ctgi.google.problems](https://gi
 Materials for computer science concepts like operating system[Semaphores, mutual exclusion, critical section etc.], networks[dhcp, dns, nat, tcp, udp, website flow etc.], bigdata[elastic search, memcache, search etc.], machine architecture[CPU, GPU, X86 etc.] are available in [com.ctgi.google.concepts](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/concepts).
 
 ###Where can I refer datastructure implementations?
-Datastructure implemantations like Hashtable, Linkedlist[Singly, Doudly, Circular], Graph, Tree,Cache[LRU, MRU] etc. in [com.ctgi.google.implementation](com.ctgi.google.concepts](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/implementation).
+Datastructure implemantations like Hashtable, Linkedlist[Singly, Doubly, Circular], Graph, Tree,Cache[LRU, MRU] etc. in [com.ctgi.google.implementation](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/implementation).
 
 
 
@@ -28,4 +28,4 @@ ctgi is licensed under MIT License. See LICENSE for full license text.
   
 ###Project Contributor
 
-* Dinesh Appavoo ([@DineshAppavoo](https://utdallas.com/dxa132330))
+* Dinesh Appavoo ([@DineshAppavoo](http://utdallas.com/~dxa132330))
