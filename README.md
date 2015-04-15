@@ -18,7 +18,7 @@ Materials for computer science concepts like operating system[Semaphores, mutual
 Datastructure implemantations like Hashtable, Linkedlist[Singly, Doubly, Circular], Graph, Tree,Cache[LRU, MRU] etc. in [com.ctgi.google.implementation](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/implementation).
 
 ###Where do I learn about programming language related topics/issues?
-Programming language related topics like java-[abstract classes, jvm, memory etc.], c-[compilation, macros, malloc, pointers, segmentation fault, stack/heap memory etc.] is available in [com.ctgi.google.languages](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/languages)
+Programming language related topics like java-[abstract classes, jvm, memory etc.], c-[compilation, macros, malloc, pointers, segmentation fault, stack/heap memory etc.] , comparison between C and Java are available in [com.ctgi.google.languages](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/languages)
 
 ###Where can I find common mistakes we do in interviews in programming challenges?
 Common mistakes like Division by zero, array out of bound exceptions, recursive base cases are available in [com.ctgi.google.mistakes](https://github.com/dineshappavoo/ctgi/tree/master/src/com/ctgi/google/mistakes)

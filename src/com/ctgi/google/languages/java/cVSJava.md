@@ -4,7 +4,7 @@ Difference between C and Java
 |--------|---|-------|
 |type of language	|	function oriented	|	object oriented |
 |language type	|	```Compiled:``` takes your code & translates it into something the machine can understand-that is to say-0's & 1's-the machine-level code. That's exactly what happens with our C code-it gets 'compiled'.  | ```Intrepreted:``` the code is first transformed to what is called the bytecode. This bytecode is then executed by the JVM(Java Virtual Machine). For the same reason, JAVA code is more portable. |
-|language level | C is a low-level language(difficult interpretation for the user, closer significance to the machine-level code) |	 JAVA is a high-level lagunage(abstracted from the machine-level details, closer significance to the program itself). |
+|language level | C is a low-level language(difficult interpretation for the user, closer significance to the machine-level code) |	 JAVA is a high-level language(abstracted from the machine-level details, closer significance to the program itself). |
 |approach	|	```C uses the top-down {sharp & smooth} approach```	In C, formulating the program begins by defining the whole and then splitting them into smaller elements.	|```JAVA uses the bottom-up {on the rocks} approach``` JAVA(and C++ and other OOP languages) follows the bottom-up approach where the smaller elements combine together to form the whole.|
 ||||
 |basic programming unit	|	function	|	class = ADT |
