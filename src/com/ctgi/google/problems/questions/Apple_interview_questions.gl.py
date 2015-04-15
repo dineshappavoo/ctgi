@@ -1,7 +1,7 @@
 ALGORITHMS:
 
-1. Write code to sum 2 integer but u cant use a+b method, you have to use either ++ or --. How you will handle negative numbers [com.ctgi.apple.problems.SumIntegersUsingSpecialOperator]
-2. There are several words in a file. Get the occurrence of every word and sort it based on the occurrence, if more than one word is having same occurrence than sort it alphabetically. [com.ctgi.apple.problems.SortListBasedOnOccurrance]
+1. Write code to sum 2 integer but u cant use a+b method, you have to use either ++ or --. How you will handle negative numbers [com.ctgi.google.problems.SumIntegersUsingSpecialOperator]
+2. There are several words in a file. Get the occurrence of every word and sort it based on the occurrence, if more than one word is having same occurrence than sort it alphabetically. [com.ctgi.google.problems.SortListBasedOnOccurrance]
 
 TEST
 1.
