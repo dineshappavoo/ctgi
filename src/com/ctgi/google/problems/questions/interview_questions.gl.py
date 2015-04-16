@@ -41,4 +41,5 @@ QUESTIONS:
 11.Implement 2 stacks using an array in java? [Amazon]
 12.Implement a distributed cache or LRU cache ? [Amazon]
 13.Given a string and a set of strings find out whether the strings from set are prefix of the original string? For example "caterpiller" is the given string and set of strings are [cat, cater, piller] and the results should be [cat, cater] because both are the prefix of "caterpiller"
-14.
+14.Find the second smallest element from the array? [Goldman sachs][com.ctgi.google.problems.SecondMinimumFromTheArray]
+15.Given an integer x how do you find x is a power of 10? [Goldman sachs][com.ctgi.google.problems.NumberPowerOfTen]
