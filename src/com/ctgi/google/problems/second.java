@@ -21,7 +21,7 @@ public class second {
 	Given an org chart as a non-cyclical tree, each node is a person.  What is the greatest number of degrees of separation from the CEO ?
 	        1
 	    2       3
-	4 5 6
+	  4 5 6
 	class TreeNode {
 		List<TreeNode> children;
 		int happiness;

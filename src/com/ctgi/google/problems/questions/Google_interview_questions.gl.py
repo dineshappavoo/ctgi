@@ -82,7 +82,11 @@ ALGORITHMS:
         1 2 1 1
         1 1 1 2 1 1 1 1
         1 1
-36.
+36.Given an org chart as a non-cyclical tree, each node is a person.  What is the greatest number of degrees of separation from the CEO ?
+            1
+        2       3
+      4 5 6
+37.Given an org chart as a non-cyclical tree, each node is a person.  Each node has a personal happiness score (the greater the double, the greater the happiness).  Each manager (node with children) has an uncalculated aggregate happiness: the average happiness of all reports and him/herself.  Return the node with the greatest aggregate happiness.
 
 
 

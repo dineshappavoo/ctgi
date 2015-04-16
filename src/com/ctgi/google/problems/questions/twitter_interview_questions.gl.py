@@ -2,7 +2,7 @@ Twitter
 =======
 1.Number of ways to tile a prism?
 2.string manipulation program and remove duplicate words ? [com.ctgi.google.problems.RemoveDuplicateWords]
-3.find GCD and LCM? [GCD, LCM]
+3.find GCD and LCM? [com.ctgi.google.problems.GCD, com.ctgi.google.problems.LCM]
 4.implement some formula (x-1)! % x = -1. looks easy but for large number is runs out of memory as factorial get very big. The trick is that the formula is to check is x is prime or not.?
 5.Multiply 2 integers that are arbitrarily long. They are given to you as strings, but you cannot cast them into any other data type like doubles etc.
 6.Given a n-by-n matrix, each cell has a value of either 0 or 1. A cell indicates a wall if its value is 1. give the length of the shortest path from M[0][0] to M[n-1][n-1]. You can move either up, down, left or right.
