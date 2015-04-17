@@ -5,7 +5,9 @@ package com.ctgi.google.threads.diningphilosophers;
 
 /**
  * @author Dany
- *
+ ********************************
+ *	WARNING - INCOMPLETE MODULE
+ ********************************
  */
 public class Philosopher {
 

@@ -25,6 +25,9 @@ public class MaximumPossibleWaysOfBST {
 		System.out.println(new MaximumPossibleWaysOfBST().t(1000));
 
 		System.out.println(new MaximumPossibleWaysOfBST().countTrees(1000));
+		
+		System.out.println(new MaximumPossibleWaysOfBST().findMaximumPossibleBST(6));
+
 	}
 	
 	public long t(long n)
@@ -73,6 +76,16 @@ public class MaximumPossibleWaysOfBST {
 			memoTable1.put(numKeys, sum);
 			return memoTable1.get(numKeys);
 		  } 
-		} 
+		}
+	
+	public long findMaximumPossibleBST(int n)
+	{
+		long sum =1;
+		for(int k=2;k<=n;k++)
+		{
+			sum *= (long)((n+k)/k);
+		}
+		return sum;		
+	}
 
 }
