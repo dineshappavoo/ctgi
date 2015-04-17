@@ -21,9 +21,9 @@ public class MaximumPossibleWaysOfBST {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.out.println(new MaximumPossibleWaysOfBST().t(100));
+		System.out.println(new MaximumPossibleWaysOfBST().t(1000));
 
-		System.out.println(new MaximumPossibleWaysOfBST().countTrees(100));
+		System.out.println(new MaximumPossibleWaysOfBST().countTrees(1000));
 	}
 	
 	public long t(long n)
@@ -39,6 +39,8 @@ public class MaximumPossibleWaysOfBST {
 		for(long i=0;i<n;i++)
 		{
 			val += t(i)*t(j--);
+            //val += t(i-1)*t(Math.abs(n-i));
+
 		}
 		memoTable.put(n, val);
 		return memoTable.get(n);
