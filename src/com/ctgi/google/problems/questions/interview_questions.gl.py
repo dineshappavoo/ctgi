@@ -45,3 +45,6 @@ QUESTIONS:
 15.Given an integer x how do you find x is a power of 10? [Goldman sachs][com.ctgi.google.problems.NumberPowerOfTen]
 16.Given a binary tree find whether the tree is a BST? [AMazon] []
 17.Describe a datastructure to find the minimum element in O(1) time ? [Amazon]
+18.Given a string s, find two max no. of occurances of characters and determine the numbers are equal or not? For example 'aaabbbcc' returns false because last two max are equal. aababbccccb gives true because max is c->4  [Amazon]
+19.Serialize and Deserialize a Binary Tree. Serialization is to store tree in a file so that it can be later restored. The structure of tree must be maintained. Deserialization is reading tree back from file. [Amazon]
+20.
