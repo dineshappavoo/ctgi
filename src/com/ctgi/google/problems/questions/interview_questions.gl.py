@@ -47,4 +47,4 @@ QUESTIONS:
 17.Describe a datastructure to find the minimum element in O(1) time ? [Amazon]
 18.Given a string s, find two max no. of occurances of characters and determine the numbers are equal or not? For example 'aaabbbcc' returns false because last two max are equal. aababbccccb gives true because max is c->4  [Amazon]
 19.Serialize and Deserialize a Binary Tree. Serialization is to store tree in a file so that it can be later restored. The structure of tree must be maintained. Deserialization is reading tree back from file. [Amazon]
-20.
+20.Given n elements in an array.Find the n th largest from an array using minheap or array ? [BNSF Railways] []
