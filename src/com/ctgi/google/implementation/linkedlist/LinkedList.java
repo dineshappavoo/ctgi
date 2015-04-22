@@ -8,7 +8,7 @@ package com.ctgi.google.implementation.linkedlist;
  * @author Dinesh Appavoo
  *
  */
-public class SinglyLinkedList {
+public class LinkedList {
 
 	class Node{
 		int key;
@@ -217,7 +217,7 @@ public class SinglyLinkedList {
 
 	public static void main(String args[])
 	{
-		SinglyLinkedList st = new SinglyLinkedList();
+		LinkedList st = new LinkedList();
 
 		// insert some key-value pairs
 		st.insert(1,   1);
