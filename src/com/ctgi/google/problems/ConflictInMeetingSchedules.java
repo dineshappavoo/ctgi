@@ -11,14 +11,16 @@ import java.util.PriorityQueue;
  * @author Dany
  *
  */
-public class ActivitySelection {
+public class ConflictInMeetingSchedules {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ActivitySelection aSelection = new ActivitySelection();
+
+		ConflictInMeetingSchedules cObj = new ConflictInMeetingSchedules();
+
 		ArrayList<ActivityTime> activities = new ArrayList<ActivityTime>();
 
 		activities.add(new ActivityTime(2,5));
@@ -30,18 +32,14 @@ public class ActivitySelection {
   		activities.add(new ActivityTime(15,17)); 
   		activities.add(new ActivityTime(16,18)); 
   		activities.add(new ActivityTime(19,20)); 
-  		activities.add(new ActivityTime(19,21)); 
+  		activities.add(new ActivityTime(19,21));
 
-		ArrayList<ActivityTime> result = aSelection.findMinimumHallsForActivity(activities); 
-
-		for(ActivityTime aTime : result)
-		{
-			System.out.println(aTime.startTime+","+aTime.endTime);
-		}
+		boolean res = cObj.isConflictExists(activities);
+		System.out.println(res);
 	}
-
-
-	public ArrayList<ActivityTime> findMinimumHallsForActivity(ArrayList<ActivityTime> activities)
+	
+	
+	public boolean isConflictExists(ArrayList<ActivityTime> activities)
 	{
 		//Minheap used to sort the activity by end time
 		PriorityQueue<ActivityTime> minHeap = implementMinHeapPriorityQueue();
@@ -49,20 +47,20 @@ public class ActivitySelection {
 		{
 			minHeap.add(aTime);
 		}
-		ArrayList<ActivityTime> resultActivities = new ArrayList<ActivityTime>();
+
 		ActivityTime first = minHeap.poll();
 		int currentEnd = first.endTime;
-		resultActivities.add(first);
+
 		for(int i=1;i<activities.size();i++)
 		{
 			ActivityTime aTime = minHeap.poll();
-			if(aTime.startTime>=currentEnd)
+			if(aTime.startTime<currentEnd)
 			{
-				resultActivities.add(aTime);
+				return true;
 			}
 			currentEnd = aTime.endTime;
 		}
-		return resultActivities;
+		return false;
 	}
 
 	public PriorityQueue<ActivityTime> implementMinHeapPriorityQueue()
@@ -79,5 +77,6 @@ public class ActivitySelection {
 				);
 		return queue;	
 	}
+
 
 }

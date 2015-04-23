@@ -7,10 +7,10 @@ Facebook
 2.write a function that calculates the minimum number of meeting rooms that can accommodate given schedules 
 	input: same 
 	output: # of rooms 
-	Also back to back events are allowed e.g. {2,5} {5,9} correct o/p:1
+	Also back to back events are allowed e.g. {2,5} {5,9} correct o/p:1   [com.ctgi.google.problems.ActivitySelection][com.ctgi.google.problems.ActivityTime]
 3.write a function that detects conflicts in given meeting schedules 
 	input: a list of intervals, [(s1, e1), (s2, e2), ] 
-	output: return True if there's any conflict, False otherwise
+	output: return True if there's any conflict, False otherwise [com.ctgi.google.problems.ConflictInMeetingSchedules][com.ctgi.google.problems.ActivityTime]
 4.There are 3 romms in which party is going on lets say room A, B, C. Guests are coming one by one and you have to tell the guest which room to enter. At any point of time each room has to maintain a percentage Lets say the percentage that each room has to maintain is 
 	A- 20% , B-30% , C- 50%. You can maintain total count of each room and keep on adding count to respective room as the new guest enters each room. How would you go about it. What formula would you use.  Give a generalise formula so that it works if no. of rooms increase.
 5.You are given a 2d rectangular array of positive integers representing the height map of a continent. The "Pacific ocean" touches the left and top edges of the array and the "Atlantic ocean" touches the right and bottom edges. 
@@ -32,7 +32,7 @@ Facebook
 	stairs(3) 
 	111 
 	12 
-	21
+	21   [com.ctgi.google.problems.WaysToClimbNStepStairs]
 7.A robot has to move in a grid which is in the form of a matrix. It can go to 
 	1.) A(i,j)--> A(i+j,j) (Down) 
 	2.) A(i,j)--> A(i,i+j) (Right) 
