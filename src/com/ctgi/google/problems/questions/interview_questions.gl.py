@@ -48,3 +48,11 @@ QUESTIONS:
 18.Given a string s, find two max no. of occurances of characters and determine the numbers are equal or not? For example 'aaabbbcc' returns false because last two max are equal. aababbccccb gives true because max is c->4  [Amazon]
 19.Serialize and Deserialize a Binary Tree. Serialization is to store tree in a file so that it can be later restored. The structure of tree must be maintained. Deserialization is reading tree back from file. [Amazon]
 20.Given n elements in an array.Find the n th largest from an array using minheap or array ? [BNSF Railways] []
+21.Remove all occurrences a specific character from the input string in place [Bloomberg] [com.ctgi.google.arraysandstrings.StringReplaceChar]
+22.How do you find the common elements from two sorted arrays in place ? [Bloomberg]
+23.Design a data structure to store the top ten stock prices based on the following properties?
+    i.How do you update the list when the stock prices changes
+    ii.How do you read data the data from the datastructure in O(1)?
+    iii.How do you make this as threadsafe?    [Bloomberg]
+24.
+

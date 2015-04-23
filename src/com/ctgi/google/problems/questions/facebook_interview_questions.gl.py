@@ -49,15 +49,7 @@ Facebook
 	[45, 50, 55] 
 	] 
 	
-	Your function should print 5, 20, 40, 45, 50, 55, 60, 80, 90.  [Given an m x n matrix where each row element is sorted, but the columns do not appear in sorted order, write a function to print each matrix element in sorted order. 
-	Example matrix: 
-	matrix = [ 
-	[20, 40, 80], 
-	[5, 60, 90], 
-	[45, 50, 55] 
-	] 
-	
-	Your function should print 5, 20, 40, 45, 50, 55, 60, 80, 90.  [MergeRowsOnlySortedMatrix].MergeRowsOnlySortedMatrix]
+	Your function should print 5, 20, 40, 45, 50, 55, 60, 80, 90.  [MergeRowsOnlySortedMatrix]
 	
 	Add on: Assume that we are space-constrained such that we can only hold one row in memory at a time. Optimize your function to work under such constraints as efficiently as possible.
 9.Question: Given a sequence of positive integers A and an integer T, return whether there is a continuous sequence of A that sums up to exactly T 
