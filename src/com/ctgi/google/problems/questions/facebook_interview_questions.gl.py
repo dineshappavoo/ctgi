@@ -38,7 +38,7 @@ Facebook
 	2.) A(i,j)--> A(i,i+j) (Right) 
 
 	Given it starts at (1,1) and it has to go to A(m,n), find the minimum number of STEPS it has to take to get to (m,n) and write 
-	public static int minSteps(int m,int n) 
+	public static int minSteps(int m,int n)   [com.ctgi.google.problems.MinimumStepsForRobotMovement]
 
 	For instance to go from (1,1) to m=3 and n=2 it has to take (1, 1) -> (1, 2) -> (3, 2) i.e. 2 steps
 8.Given an m x n matrix where each row element is sorted, but the columns do not appear in sorted order, write a function to print each matrix element in sorted order. 
